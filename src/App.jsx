@@ -1,13 +1,12 @@
-import { useState } from 'react'
-// import reactLogo from './assets/react.svg'
-// import viteLogo from '/vite.svg'
+// import { useState } from 'react'
 import './App.css'
-import PopNewCard from './components/popups/Pop-New-Card/PopNewCard'
-import PopBrowse from './components/popups/Pop-Browse/PopBrowse'
-import Main from './components/Main/Main'
+import PopNewCard from './components/popups/PopNewCard/PopNewCard';
+import PopBrowse from './components/popups/PopBrowse/PopBrowse';
+import Main from './components/Main/Main';
+import Header from './components/Header/Header';
 
 function App() {
-  const [count, setCount] = useState(0)
+//   const [count, setCount] = useState(0)
 
   return (
     <>
@@ -30,38 +29,13 @@ function App() {
 				</div>
 			</div>
 
-			<PopNewCard/>
+			<PopNewCard />
 
-			<PopBrowse/>
+			<PopBrowse />
 		
 		{/* <!-- pop-up end--> */}
 
-		<header className="header">
-			<div className="container">
-				<div className="header__block">
-					<div className="header__logo _show _light">
-						<a href="" target="_self"><img src="public/logo.png" alt="logo"/></a>
-					</div>
-					<div className="header__logo _dark">
-						<a href="" target="_self"><img src="public/logo_dark.png" alt="logo"/></a>
-					</div>
-					<nav className="header__nav">
-						<button className="header__btn-main-new _hover01" id="btnMainNew"><a href="#popNewCard">Создать новую задачу</a></button>
-						<a href="#user-set-target" className="header__user _hover02">Ivan Ivanov</a>
-						<div className="header__pop-user-set pop-user-set" id="user-set-target">
-							{/* <a href="">x</a> */}
-							<p className="pop-user-set__name">Ivan Ivanov</p>
-							<p className="pop-user-set__mail">ivan.ivanov@gmail.com</p>
-							<div className="pop-user-set__theme">
-								<p>Темная тема</p>
-								<input type="checkbox" className="checkbox" name="checkbox"/>
-							</div>
-							<button type="button" className="_hover03"><a href="#popExit">Выйти</a></button>
-						</div>
-					</nav>					
-				</div>
-			</div>			
-		</header>
+		<Header />
 		<Main />
 		
     </div>
