@@ -32,8 +32,6 @@ function App() {
 			<PopNewCard />
 
 			<PopBrowse />
-		
-		{/* <!-- pop-up end--> */}
 
 		<Header />
 		<Main />
