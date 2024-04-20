@@ -11,7 +11,3 @@ function PopUser() {
 }
 
 export default PopUser;
-
-
-
-{/* <a href="">x</a> */}
