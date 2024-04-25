@@ -1,3 +1,4 @@
+import { Container } from "../../globalStyle.styled";
 import Column from "../Column/Column";
 
 const statusList = [
@@ -11,7 +12,7 @@ const statusList = [
 function Main({ cards, isLoading }) {
     
     return <main className="main">
-        <div className="container">
+        <Container>
             <div className="main__block">
             {isLoading ? "Данные загружаются..." : <div className="main__content">
                 {statusList.map((status) => (
@@ -23,7 +24,7 @@ function Main({ cards, isLoading }) {
                 ))}					
                 </div>}
             </div>
-        </div>
+        </Container>
     </main>;
 }
 
