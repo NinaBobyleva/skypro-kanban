@@ -1,9 +1,14 @@
-function Card({ nameCard }) {
+function Card({ theme, date, title }) {
+    const colors = {
+        'Web Design': '_orange',
+        'Research': '_green',
+        'Copywriting': '_purple',
+    }
     return <div className="cards__item">
     <div className="cards__card card">
         <div className="card__group">
-            <div className="card__theme _orange">
-            <p className="_orange">{nameCard}</p>  
+            <div className={`card__theme ${colors[theme]}`}>
+            <p className={`${colors[theme]}`}>{theme}</p>  
             </div>
             <a href="#popBrowse" target="_self">
                 <div className="card__btn">
@@ -15,7 +20,7 @@ function Card({ nameCard }) {
         </div>
         <div className="card__content">
             <a href="" target="_blank">
-                <h3 className="card__title">Название задачи</h3>
+                <h3 className="card__title">{title}</h3>
             </a>
             <div className="card__date">
                 <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13" fill="none">
@@ -29,7 +34,7 @@ function Card({ nameCard }) {
                         </clipPath>
                     </defs>
                 </svg>
-                <p>30.10.23</p>
+                <p>{date}</p>
             </div>
         </div>
     </div>

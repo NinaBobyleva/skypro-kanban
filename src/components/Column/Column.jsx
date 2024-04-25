@@ -1,12 +1,14 @@
 import Card from "../Card/Card";
 
-function Column({ nameColumn }) {
+function Column({ nameColumn, cards }) {
     return  <div className="main__column column">
     <div className="column__title">
         {nameColumn}
     </div>
     <div className="cards">
-        <Card nameCard = "Web Design" />
+        {cards.map(card => (
+            <Card theme={card.topic} date={card.date} key={card.id} title={card.title} />
+        ))}
     </div>
 </div>
 }

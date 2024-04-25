@@ -777,7 +777,7 @@ body {
   padding: 0;
 }
 .header__pop-user-set {
-  display: none;
+  display: block;
   position: absolute;
   top: 61px;
   right: 0;
@@ -815,7 +815,7 @@ body {
   padding: 0 10px;
   margin: 15px 0;
 }
-.column__title p {
+.column__title {
   color: #94A6BE;
   font-size: 14px;
   font-weight: 600;
