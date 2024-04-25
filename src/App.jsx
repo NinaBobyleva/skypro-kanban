@@ -6,6 +6,7 @@ import Main from './components/Main/Main';
 import Header from './components/Header/Header';
 import { cardList } from './data';
 import PopExit from './components/Popups/PopExit/PopExit';
+import { GlobalStyle, Wrapper } from './globalStyle.styled';
 
 function App() {
 	const [cards, setCards] = useState(cardList);
@@ -27,17 +28,18 @@ function App() {
 		setIsLoading(true);
 		setTimeout(() => {
 			setIsLoading(false);
-		}, 1000)
+		}, 0)
 	}, [])
 	
 	return (
-		<div className="wrapper">
+		<Wrapper>
+			<GlobalStyle/>
 			<PopExit />
 			<PopNewCard />
 			<PopBrowse />
 			<Header addCard={addCard}/>
 			<Main cards={cards} isLoading={isLoading}/>
-		</div>
+		</Wrapper>
 	)
 }
 
