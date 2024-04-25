@@ -1,4 +1,4 @@
-import PopUser from "../popups/PopUser/PopUser";
+import PopUser from "../Popups/PopUser/PopUser";
 import { useState } from "react";
 
 function Header({ addCard }) {
