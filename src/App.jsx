@@ -17,7 +17,7 @@ function App() {
 		const newCard = {
 			id: cards[cards.length - 1]. id + 1,
 			topic: 'Web Design',
-			title: 'Название задачи',
+			title: 'Название задачи!',
 			date: '30.10.23',
 			status: 'Без статуса',
 		};
