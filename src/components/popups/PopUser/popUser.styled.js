@@ -27,7 +27,7 @@ export const PopUserSet = styled.header`
         color: #565EEF;
         border-radius: 4px;
         border: 1px solid #565EEF;
-        a{
+        a {
             color: #565EEF;
         }
     }
