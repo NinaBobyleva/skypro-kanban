@@ -1,5 +1,6 @@
 import { Container } from "../../globalStyle.styled";
 import Column from "../Column/Column";
+import * as S from "./main.styled";
 
 const statusList = [
     'Без статуса',
@@ -11,21 +12,21 @@ const statusList = [
 
 function Main({ cards, isLoading }) {
     
-    return <main className="main">
+    return <S.Main>
         <Container>
-            <div className="main__block">
-            {isLoading ? "Данные загружаются..." : <div className="main__content">
+            <S.MainBlock>
+            {isLoading ? "Данные загружаются..." : <S.MainContent>
                 {statusList.map((status) => (
                     <Column 
                         key={status}
                         nameColumn={status}
                         cards={cards.filter((card) => card.status === status)} 
-                        />
+                    />
                 ))}					
-                </div>}
-            </div>
+                </S.MainContent>}
+            </S.MainBlock>
         </Container>
-    </main>;
+    </S.Main>;
 }
 
 export default Main;
