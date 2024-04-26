@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react'
 import './App.css'
-import PopNewCard from './components/Popups/PopNewCard/PopNewCard';
-import PopBrowse from './components/Popups/PopBrowse/PopBrowse';
+import PopNewCard from './components/popups/PopNewCard/PopNewCard';
+import PopBrowse from './components/popups/PopBrowse/PopBrowse';
 import Main from './components/Main/Main';
 import Header from './components/Header/Header';
 import { cardList } from './data';
-import PopExit from './components/Popups/PopExit/PopExit';
+import PopExit from './components/popups/PopExit/PopExit';
 import { GlobalStyle, Wrapper } from './globalStyle.styled';
 
 function App() {

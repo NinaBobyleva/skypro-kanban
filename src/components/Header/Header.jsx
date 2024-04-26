@@ -1,7 +1,7 @@
 import { Container } from "../../globalStyle.styled";
-import PopUser from "../Popups/PopUser/PopUser";
 import { useState } from "react";
 import * as S from "./header.styled";
+import PopUser from "../popups/PopUser/PopUser";
 
 function Header({ addCard }) {
     const [isOpenModalUser, setIsOpenModalUser] = useState(false);
