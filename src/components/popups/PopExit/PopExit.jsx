@@ -7,12 +7,12 @@ function PopExit() {
             <S.PopExitTtl>
                 <h2>Выйти из аккаунта?</h2>
             </S.PopExitTtl>
-            <S.PopExitForm id="formExit" action="#">
+            <form className="pop-exit__form" id="formExit" action="#">
                 <S.PopExitFormGroup>
                     <S.PopExitExitYes className="_hover01" id="exitYes"><a href="modal/signin.html">Да, выйти</a> </S.PopExitExitYes>
                     <S.PopExitExitNo className="_hover03" id="exitNo"><a href="main.html">Нет, остаться</a> </S.PopExitExitNo>
                 </S.PopExitFormGroup>
-            </S.PopExitForm>
+            </form>
         </S.PopExitBlock>
     </S.PopExitContainer>
 </S.PopExit>;
