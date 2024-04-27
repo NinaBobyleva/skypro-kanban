@@ -9,9 +9,9 @@ function Card({ theme, date, title }) {
     return <S.CardsItem>
     <S.CardsCard>
         <S.CardGroup>
-            <div className={`card__theme ${colors[theme]}`}>
-            <p className={`${colors[theme]}`}>{theme}</p>  
-            </div>
+            <S.CardTheme $topicStyle={`${colors[theme]}`}>
+            <S.TopicText $topicStyle={`${colors[theme]}`}>{theme}</S.TopicText>  
+            </S.CardTheme>
             <a href="#popBrowse" target="_self">
                 <S.CardBtn>
                     <div></div>
