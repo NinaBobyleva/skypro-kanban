@@ -9,8 +9,8 @@ function PopExit() {
             </S.PopExitTtl>
             <form className="pop-exit__form" id="formExit" action="#">
                 <S.PopExitFormGroup>
-                    <S.PopExitExitYes className="_hover01" id="exitYes"><a href="modal/signin.html">Да, выйти</a> </S.PopExitExitYes>
-                    <S.PopExitExitNo className="_hover03" id="exitNo"><a href="main.html">Нет, остаться</a> </S.PopExitExitNo>
+                    <S.PopExitExitYes id="exitYes"><a href="modal/signin.html">Да, выйти</a> </S.PopExitExitYes>
+                    <S.PopExitExitNo id="exitNo"><a href="main.html">Нет, остаться</a> </S.PopExitExitNo>
                 </S.PopExitFormGroup>
             </form>
         </S.PopExitBlock>

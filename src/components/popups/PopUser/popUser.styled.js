@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Hover3 } from "../../../globalStyle.styled";
 
 export const HeaderPopUserSet = styled.div`
     display: block;
@@ -86,4 +87,8 @@ export const PopUserSetTheme = styled.div`
     input:checked[type=checkbox]::before {
         left: 12px;
     }
+`;
+
+export const Button = styled.button`
+    ${Hover3}
 `;

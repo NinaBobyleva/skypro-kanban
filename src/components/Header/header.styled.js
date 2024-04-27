@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Hover1, Hover2 } from "../../globalStyle.styled";
 
 export const Header = styled.div`
     width: 100%;
@@ -46,6 +47,7 @@ export const HeaderBtnMainNew = styled.button`
     a {
         color: #FFFFFF;
     }
+    ${Hover1}
 `;
 
 export const HeaderUser = styled.a`
@@ -69,4 +71,12 @@ export const HeaderUser = styled.a`
         margin: -6px 0 0 5px;
         padding: 0;
     }
+    &:hover {
+        color: #33399b;
+        &::after {
+            border-left-color: #33399b;
+            border-bottom-color: #33399b;
+        }
+    }
+    ${Hover2}
 `;

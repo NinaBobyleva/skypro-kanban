@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Hover1, Hover3 } from "../../../globalStyle.styled";
 
 export const PopExit = styled.div`
     display: none;
@@ -81,6 +82,7 @@ export const PopExitExitYes = styled.button`
         align-items: center;
         justify-content: center;
     }
+    ${Hover1}
 `;
 
 export const PopExitExitNo = styled.button`
@@ -106,4 +108,5 @@ export const PopExitExitNo = styled.button`
         align-items: center;
         justify-content: center;
     }
+    ${Hover3}
 `;

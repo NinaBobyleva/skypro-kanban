@@ -2,7 +2,7 @@ import * as S from "./Calendar.styled";
 
 function Calendar() {
     return <S.Calendar className="pop-new-card__calendar">
-    <S.CalendarTtl className="subttl">Даты</S.CalendarTtl>									
+    <S.Subttl>Даты</S.Subttl>									
     <S.CalendarBlock>
         <S.CalendarNav>
             <S.CalendarMonth>Сентябрь 2023</S.CalendarMonth>
@@ -41,7 +41,7 @@ function Calendar() {
                 <S.CellDay>5</S.CellDay>
                 <S.CellDay>6</S.CellDay>
                 <S.CellDay>7</S.CellDay>
-                <S.CellDay className="_current">8</S.CellDay>
+                <S.Current>8</S.Current>
                 <S.CellDay className="_weekend">9</S.CellDay>
                 <S.CellDay className="_weekend">10</S.CellDay>
                 <S.CellDay>11</S.CellDay>

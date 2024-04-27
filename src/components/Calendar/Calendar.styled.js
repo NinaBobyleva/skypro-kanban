@@ -1,4 +1,4 @@
-import { css, styled } from "styled-components";
+import { styled } from "styled-components";
 
 export const Calendar = styled.div`
     width: 182px;
@@ -8,6 +8,13 @@ export const Calendar = styled.div`
 export const CalendarTtl = styled.p`
     margin-bottom: 14px;
     padding: 0 7px;
+`;
+
+export const Subttl = styled(CalendarTtl)`
+  color: #000;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1;
 `;
 
 export const CalendarBlock = styled.div`
@@ -101,6 +108,10 @@ export const CellDay = styled(CalendarCell)`
         color: #94A6BE;
         background-color: #EAEEF6;
     }
+`;
+
+export const Current = styled(CalendarCell, CellDay)`
+    font-weight: 700;
 `;
 
 export const CalendarPeriod = styled.div`
