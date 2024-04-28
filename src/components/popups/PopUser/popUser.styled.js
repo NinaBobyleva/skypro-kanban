@@ -21,17 +21,20 @@ export const PopUserSet = styled.header`
     &:target {
         display: block;
     }
-    button {
-        width: 72px;
-        height: 30px;
-        background: transparent;
-        color: #565EEF;
-        border-radius: 4px;
-        border: 1px solid #565EEF;
-        a {
-            color: #565EEF;
-        }
-    }
+`;
+
+export const Button = styled.button`
+    width: 72px;
+    height: 30px;
+    background: transparent;
+    color: #565EEF;
+    border-radius: 4px;
+    border: 1px solid #565EEF;
+    ${Hover3}
+`;
+
+export const ButtonA = styled.a`
+    color: #565EEF;
 `;
 
 export const PopUserSetName = styled.p`
@@ -56,39 +59,37 @@ export const PopUserSetTheme = styled.div`
     align-items: center;
     justify-content: space-between;
     margin-bottom: 30px;
-    p {
-        color: #000;
-        font-size: 14px;
-        line-height: 21px;
-        letter-spacing: -0.14px;
-    }
-    input[type=checkbox]{
-        position: relative;
-        width: 24px;
-        height: 13px;
-        border-radius: 100px;
-        background: #EAEEF6;
-        outline: none;
-        -webkit-appearance: none;
-            -moz-appearance: none;
-                appearance: none;
-        &::before {
-            content: "";
-            position: absolute;
-            top: 1px;
-            left: 1px;
-            width: 11px;
-            height: 11px;
-            border-radius: 50%;
-            background-color: #94A6BE;
-            transition: 0.5s;
-        }
-    }
-    input:checked[type=checkbox]::before {
-        left: 12px;
-    }
 `;
 
-export const Button = styled.button`
-    ${Hover3}
+export const PopUserSetThemeP = styled.p`
+    color: #000;
+    font-size: 14px;
+    line-height: 21px;
+    letter-spacing: -0.14px;
+`;
+
+export const PopUserSetThemeInput = styled.input`
+    position: relative;
+    width: 24px;
+    height: 13px;
+    border-radius: 100px;
+    background: #EAEEF6;
+    outline: none;
+    -webkit-appearance: none;
+        -moz-appearance: none;
+            appearance: none;
+    &::before {
+        content: "";
+        position: absolute;
+        top: 1px;
+        left: 1px;
+        width: 11px;
+        height: 11px;
+        border-radius: 50%;
+        background-color: #94A6BE;
+        transition: 0.5s;
+    }
+    &:checked[type=checkbox]::before {
+        left: 12px;
+    }  
 `;

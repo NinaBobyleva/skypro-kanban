@@ -6,10 +6,10 @@ function PopUser() {
     <S.PopUserSetName>Ivan Ivanov</S.PopUserSetName>
     <S.PopUserSetMail>ivan.ivanov@gmail.com</S.PopUserSetMail>
     <S.PopUserSetTheme>
-        <p>Темная тема</p>
-        <input type="checkbox" className="checkbox" name="checkbox"/>
+        <S.PopUserSetThemeP>Темная тема</S.PopUserSetThemeP>
+        <S.PopUserSetThemeInput type="checkbox" className="checkbox" name="checkbox"/>
     </S.PopUserSetTheme>
-    <S.Button type="button"><a href="#popExit">Выйти</a></S.Button>
+    <S.Button type="button"><S.ButtonA href="#popExit">Выйти</S.ButtonA></S.Button>
     </S.PopUserSet>
 </S.HeaderPopUserSet>;
 }

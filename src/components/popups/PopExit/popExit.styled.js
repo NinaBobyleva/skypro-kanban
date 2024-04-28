@@ -43,15 +43,13 @@ export const PopExitBlock = styled.div`
     }
 `;
 
-export const PopExitTtl = styled.div`
-    h2 {
-        text-align: center;
-        font-size: 20px;
-        font-weight: 700;
-        line-height: 30px;
-        letter-spacing: -0.4px;
-        margin-bottom: 20px;
-    }
+export const PopExitTtlH2 = styled.h2`
+    text-align: center;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 30px;
+    letter-spacing: -0.4px;
+    margin-bottom: 20px;
 `;
 
 export const PopExitFormGroup = styled.div`
@@ -80,14 +78,6 @@ export const PopExitExitYes = styled.button`
     letter-spacing: -0.14px;
     color: #FFFFFF;
     margin-right: 10px;
-    a {
-        width: 100%;
-        height: 100%;
-        color: #FFFFFF;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
     ${Hover1}
     @media only screen and (max-width: 375px) {
         width: 100%;
@@ -95,6 +85,15 @@ export const PopExitExitYes = styled.button`
         margin-right: 0;
         margin-bottom: 10px;
     }
+`;
+
+export const PopExitExitYesA = styled.a`
+    width: 100%;
+    height: 100%;
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 `;
 
 export const PopExitExitNo = styled.button`
@@ -112,17 +111,18 @@ export const PopExitExitNo = styled.button`
     font-weight: 500;
     letter-spacing: -0.14px;
     color: #FFFFFF;
-    a {
-        width: 100%;
-        height: 100%;
-        color: #565EEF;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
     ${Hover3}
     @media only screen and (max-width: 375px) {
         width: 100%;
         height: 40px;
     }
+`;
+
+export const PopExitExitNoA = styled.a`
+    width: 100%;
+    height: 100%;
+    color: #565EEF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 `;

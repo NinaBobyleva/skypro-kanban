@@ -92,3 +92,7 @@ export const Hover3 = css`
     }
   }
 `;
+
+export const Hover3A = styled.a`
+  color: #FFFFFF;
+`;

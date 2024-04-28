@@ -26,11 +26,11 @@ export const HeaderLogo = styled.div`
 `;
 
 export const HeaderNav = styled.div`
-max-width: 290px;
-  padding: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    max-width: 290px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 `;
 
 export const HeaderBtnMainNew = styled.button`
@@ -44,9 +44,6 @@ export const HeaderBtnMainNew = styled.button`
     line-height: 1;
     font-weight: 500;
     margin-right: 20px;color: #FFFFFF;
-    a {
-        color: #FFFFFF;
-    }
     ${Hover1}
     @media screen and (max-width: 495px) {
         z-index: 3;
@@ -59,6 +56,10 @@ export const HeaderBtnMainNew = styled.button`
         border-radius: 4px;
         margin-right: 0;
     }
+`;
+
+export const HeaderBtnMainNewA = styled.a`
+    color: #FFFFFF;
 `;
 
 export const HeaderUser = styled.a`

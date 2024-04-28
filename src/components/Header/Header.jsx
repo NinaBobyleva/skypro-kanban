@@ -21,7 +21,7 @@ function Header({ addCard }) {
                 <a href="" target="_self"><img src="logo_dark.png" alt="logo"/></a>
             </S.HeaderLogo>
             <S.HeaderNav>
-                <S.HeaderBtnMainNew id="btnMainNew"><a href="#popNewCard" onClick={addCard}>Создать новую задачу</a></S.HeaderBtnMainNew>
+                <S.HeaderBtnMainNew id="btnMainNew"><S.HeaderBtnMainNewA href="#popNewCard" onClick={addCard}>Создать новую задачу</S.HeaderBtnMainNewA></S.HeaderBtnMainNew>
                 <S.HeaderUser href="#user-set-target" onClick={userClick}>Ivan Ivanov</S.HeaderUser>
                 {isOpenModalUser && <PopUser />}
             </S.HeaderNav>					
