@@ -1,5 +1,7 @@
-import PopUser from "../popups/PopUser/PopUser";
+import { Container } from "../../globalStyle.styled";
 import { useState } from "react";
+import * as S from "./header.styled";
+import PopUser from "../popups/PopUser/PopUser";
 
 function Header({ addCard }) {
     const [isOpenModalUser, setIsOpenModalUser] = useState(false);
@@ -9,23 +11,23 @@ function Header({ addCard }) {
         setIsOpenModalUser(prev => !prev);
     }
 
-    return <header className="header">
-    <div className="container">
-        <div className="header__block">
-            <div className="header__logo _show _light">
+    return <S.Header>
+    <Container>
+        <S.HeaderBlock>
+            <S.HeaderLogo className="_show _light">
                 <a href="" target="_self"><img src="logo.png" alt="logo"/></a>
-            </div>
-            <div className="header__logo _dark">
+            </S.HeaderLogo>
+            <S.HeaderLogo className="_dark">
                 <a href="" target="_self"><img src="logo_dark.png" alt="logo"/></a>
-            </div>
-            <nav className="header__nav">
-                <button className="header__btn-main-new _hover01" id="btnMainNew"><a href="#popNewCard" onClick={addCard}>Создать новую задачу</a></button>
-                <a href="#user-set-target" className="header__user _hover02" onClick={userClick}>Ivan Ivanov</a>
+            </S.HeaderLogo>
+            <S.HeaderNav>
+                <S.HeaderBtnMainNew id="btnMainNew"><S.HeaderBtnMainNewA href="#popNewCard" onClick={addCard}>Создать новую задачу</S.HeaderBtnMainNewA></S.HeaderBtnMainNew>
+                <S.HeaderUser href="#user-set-target" onClick={userClick}>Ivan Ivanov</S.HeaderUser>
                 {isOpenModalUser && <PopUser />}
-            </nav>					
-        </div>
-    </div>			
-</header>;
+            </S.HeaderNav>					
+        </S.HeaderBlock>
+    </Container>			
+</S.Header>;
 }
 
 export default Header;
