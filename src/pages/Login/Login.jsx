@@ -1,10 +1,11 @@
-import * as S from "../../globalStyle.styled";
+import * as S from "../../components/Main/main.styled";
+import { Wrapper } from "../../globalStyle.styled";
 
 export function Login() {
-    return <S.Wrapper>
+    return <Wrapper>
         <S.ContainerSignin>
             <S.Modal>
-                <div className="modal__block">
+                <S.MainBlock>
                     <div className="modal__ttl">
                         <h2>Вход</h2>
                     </div>
@@ -17,8 +18,8 @@ export function Login() {
                             <a href="signup.html">Регистрируйтесь здесь</a>
                         </div>
                     </form>
-                </div>
+                </S.MainBlock>
             </S.Modal>
         </S.ContainerSignin>
-    </S.Wrapper>
+    </Wrapper>
 };
