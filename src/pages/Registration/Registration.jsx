@@ -1,4 +1,5 @@
 import { Wrapper } from "../../globalStyle.styled";
+import { Link } from "react-router-dom";
 
 export function Registration() {
     return <Wrapper>
@@ -14,7 +15,7 @@ export function Registration() {
                         <input className="modal__input password-first" type="password" name="password" id="passwordFirst" placeholder="Пароль" />
                         <button className="modal__btn-signup-ent _hover01" id="SignUpEnter"><a href="../main.html">Зарегистрироваться</a> </button>
                         <div className="modal__form-group">
-                            <p>Уже есть аккаунт?  <a href="signin.html">Войдите здесь</a></p>
+                            <p>Уже есть аккаунт?  <Link to="/signin.html">Войдите здесь</Link></p>
                         </div>
                     </form>
                 </div>

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Hover1 } from "../../globalStyle.styled";
 
 export const ContainerSignin = styled.div`
     display: block;
@@ -113,6 +114,7 @@ export const ModalBtnEnter = styled.button`
     align-items: center;
     justify-content: center;
     }
+    ${Hover1}
     @media screen and (max-width: 375px) {
         height: 40px;
     }
