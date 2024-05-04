@@ -1,3 +1,4 @@
+import { paths } from "../../../paths";
 import * as S from "./popUser.styled";
 
 function PopUser() {
@@ -9,7 +10,7 @@ function PopUser() {
         <S.PopUserSetThemeP>Темная тема</S.PopUserSetThemeP>
         <S.PopUserSetThemeInput type="checkbox" className="checkbox" name="checkbox"/>
     </S.PopUserSetTheme>
-    <S.Button type="button"><S.ButtonA href="#popExit">Выйти</S.ButtonA></S.Button>
+    <S.Button type="button"><S.LinkBtn to={paths.EXIT}>Выйти</S.LinkBtn></S.Button>
     </S.PopUserSet>
 </S.HeaderPopUserSet>;
 }

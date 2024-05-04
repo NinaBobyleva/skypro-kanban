@@ -1,6 +1,7 @@
+import { Link } from "react-router-dom";
 import * as S from "./card.styled";
 
-function Card({ theme, date, title }) {
+function Card({ card }) {
     const colors = {
         'Web Design': '_orange',
         'Research': '_green',
@@ -9,20 +10,23 @@ function Card({ theme, date, title }) {
     return <S.CardsItem>
     <S.CardsCard>
         <S.CardGroup>
-            <S.CardTheme $topicStyle={`${colors[theme]}`}>
-            <S.TopicText $topicStyle={`${colors[theme]}`}>{theme}</S.TopicText>  
+            <S.CardTheme $topicStyle={`${colors[card.topic]}`}>
+            <S.TopicText $topicStyle={`${colors[card.topic]}`}>{card.topic}</S.TopicText>  
             </S.CardTheme>
-            <a href="#popBrowse" target="_self">
-                <S.CardBtn>
-                    <S.CardDiv></S.CardDiv>
-                    <S.CardDiv></S.CardDiv>
-                    <S.CardDiv></S.CardDiv>
-                </S.CardBtn>
-            </a>
+            {/* <a href="#popBrowse" target="_self"> */}
+                <Link to={`/card/${card.id}`}>
+                    <S.CardBtn>
+                        <S.CardDiv></S.CardDiv>
+                        <S.CardDiv></S.CardDiv>
+                        <S.CardDiv></S.CardDiv>
+                    </S.CardBtn>
+                </Link>
+                
+            {/* </a> */}
         </S.CardGroup>
         <S.CardContent>
             <a href="" target="_blank">
-                <S.CardTitle>{title}</S.CardTitle>
+                <S.CardTitle>{card.title}</S.CardTitle>
             </a>
             <S.CardDate>
                 <S.CardSvg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13" fill="none">
@@ -36,7 +40,7 @@ function Card({ theme, date, title }) {
                         </clipPath>
                     </defs>
                 </S.CardSvg>
-                <S.CardP>{date}</S.CardP>
+                <S.CardP>{card.date}</S.CardP>
             </S.CardDate>
         </S.CardContent>
     </S.CardsCard>

@@ -59,9 +59,6 @@ export const ModalFormLogin = styled.form`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    input:first-child {
-        margin-bottom: 7px;
-    }
 `;
 
 export const ModalInput = styled.input`
@@ -71,6 +68,7 @@ export const ModalInput = styled.input`
     border: 0.7px solid rgba(148, 166, 190, 0.4);
     outline: none;
     padding: 10px 8px;
+    margin-bottom: 7px;
     &::-moz-placeholder {
     font-family: "Roboto", sans-serif;
     font-weight: 400;

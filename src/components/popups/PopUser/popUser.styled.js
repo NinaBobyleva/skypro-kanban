@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 import { Hover3 } from "../../../globalStyle.styled";
 
 export const HeaderPopUserSet = styled.div`
@@ -33,7 +34,7 @@ export const Button = styled.button`
     ${Hover3}
 `;
 
-export const ButtonA = styled.a`
+export const LinkBtn = styled(Link)`
     color: #565EEF;
 `;
 

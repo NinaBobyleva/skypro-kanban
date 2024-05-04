@@ -2,10 +2,9 @@ import { useEffect, useState } from 'react'
 import Main from '../../components/Main/Main';
 import Header from '../../components/Header/Header';
 import { cardList } from '../../data';
-import PopExit from '../../components/popups/PopExit/PopExit';
-import { GlobalStyle, Wrapper } from '../../globalStyle.styled';
+import { Wrapper } from '../../globalStyle.styled';
 import PopNewCard from '../../components/popups/PopNewCard/PopNewCard';
-import PopBrowse from '../../components/popups/PopBrowse/PopBrowse';
+import { Outlet } from 'react-router-dom';
 
 export function HomePage() {
     const [cards, setCards] = useState(cardList);
@@ -32,12 +31,10 @@ export function HomePage() {
 	
 	return (
 		<Wrapper>
-			<GlobalStyle/>
-			<PopExit />
 			<PopNewCard />
-			<PopBrowse />
 			<Header addCard={addCard}/>
 			<Main cards={cards} isLoading={isLoading}/>
+			<Outlet />
 		</Wrapper>
 	);
 }

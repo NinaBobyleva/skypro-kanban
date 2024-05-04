@@ -1,8 +1,8 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 import { Hover1, Hover3 } from "../../../globalStyle.styled";
 
 export const PopExit = styled.div`
-    display: none;
     width: 100%;
     height: 100%;
     min-width: 320px;
@@ -87,7 +87,7 @@ export const PopExitExitYes = styled.button`
     }
 `;
 
-export const PopExitExitYesA = styled.a`
+export const PopExitExitYesLink = styled(Link)`
     width: 100%;
     height: 100%;
     color: #FFFFFF;
@@ -118,7 +118,7 @@ export const PopExitExitNo = styled.button`
     }
 `;
 
-export const PopExitExitNoA = styled.a`
+export const PopExitExitNoLink = styled(Link)`
     width: 100%;
     height: 100%;
     color: #565EEF;
