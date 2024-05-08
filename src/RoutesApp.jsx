@@ -1,7 +1,7 @@
 import { Routes, Route } from 'react-router-dom'
 import { GlobalStyle } from './globalStyle.styled';
 import { LoginPage } from './pages/LoginPage/LoginPage';
-import { RegistrPage } from './pages/RegistrPage/RegistrPage';
+import { RegisterPage } from './pages/RegistrPage/RegistrPage';
 import { HomePage } from './pages/HomePage/HomePage';
 import { PrivateRoute } from './components/PrivateRoute/PrivateRoute';
 import { paths } from './paths';
@@ -15,19 +15,19 @@ export function RoutesApp() {
     console.log(isAuth);
     return (
         <>
-        <GlobalStyle />
-        <Routes>
-            <Route element={<PrivateRoute isAuth={isAuth} />}>
-                <Route path={paths.HOME} element={<HomePage />}>
-                    <Route path={paths.EXIT} element={<ExitPage setIsAuth={setIsAuth} />} />
-                    <Route path={paths.CARD_ID} element={<CardPage />} />
+            <GlobalStyle />
+            <Routes>
+                <Route element={<PrivateRoute isAuth={isAuth} />}>
+                    <Route path={paths.HOME} element={<HomePage />}>
+                        <Route path={paths.EXIT} element={<ExitPage setIsAuth={setIsAuth} />} />
+                        <Route path={paths.CARD_ID} element={<CardPage />} />
+                    </Route>
                 </Route>
-            </Route>
 
-            <Route path={paths.LOGIN} element={<LoginPage setIsAuth={setIsAuth}/>} />
-            <Route path={paths.REGISTR} element={<RegistrPage />} />
-            <Route path={paths.NOT_FOUND} element={<NotFoundPage />} />
-        </Routes>
-    </>
+                <Route path={paths.LOGIN} element={<LoginPage setIsAuth={setIsAuth} />} />
+                <Route path={paths.REGISTER} element={<RegisterPage />} />
+                <Route path={paths.NOT_FOUND} element={<NotFoundPage />} />
+            </Routes>
+        </>
     )
 };
