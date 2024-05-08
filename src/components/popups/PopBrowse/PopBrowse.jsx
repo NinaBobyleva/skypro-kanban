@@ -4,7 +4,7 @@ import Calendar from "../../Calendar/Calendar";
 import { useParams } from 'react-router-dom';
 
 function PopBrowse() {
-    let { id } = useParams();
+    const { id } = useParams();
 
     return <div className="pop-browse" id="popBrowse">
     <div className="pop-browse__container">

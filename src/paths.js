@@ -1,8 +1,8 @@
 export const paths = {
-    HOME: "/",
+	HOME: "/",
 	CARD_ID: "/card/:id",
 	LOGIN: "/login",
-	REGISTR: "/registr",
+	REGISTER: "/register",
 	EXIT: "/exit",
 	NOT_FOUND: "*"
 }
