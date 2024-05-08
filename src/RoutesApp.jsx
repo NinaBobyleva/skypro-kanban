@@ -1,7 +1,7 @@
 import { Routes, Route } from 'react-router-dom'
 import { GlobalStyle } from './globalStyle.styled';
 import { LoginPage } from './pages/LoginPage/LoginPage';
-import { RegisterPage } from './pages/RegistrPage/RegistrPage';
+import { RegisterPage } from './pages/RegisterPage/RegisterPage';
 import { HomePage } from './pages/HomePage/HomePage';
 import { PrivateRoute } from './components/PrivateRoute/PrivateRoute';
 import { paths } from './paths';
@@ -11,8 +11,10 @@ import { ExitPage } from './pages/ExitPage/ExitPage'
 import { useState } from 'react';
 
 export function RoutesApp() {
-    let [isAuth, setIsAuth] = useState(false);
-    console.log(isAuth);
+    const [isAuth, setIsAuth] = useState(true);
+    
+    // console.log(isAuth);
+    
     return (
         <>
             <GlobalStyle />
@@ -24,10 +26,10 @@ export function RoutesApp() {
                     </Route>
                 </Route>
 
-                <Route path={paths.LOGIN} element={<LoginPage setIsAuth={setIsAuth} />} />
+                <Route path={paths.LOGIN} element={<LoginPage />} />
                 <Route path={paths.REGISTER} element={<RegisterPage />} />
                 <Route path={paths.NOT_FOUND} element={<NotFoundPage />} />
             </Routes>
         </>
     )
-};
+}

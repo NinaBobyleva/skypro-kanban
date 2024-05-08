@@ -10,7 +10,7 @@ const statusList = [
     'Готово',
 ]
 
-function Main({ cards, isLoading }) {
+function Main({ tasks, isLoading }) {
     
     return <S.Main>
         <Container>
@@ -20,7 +20,7 @@ function Main({ cards, isLoading }) {
                     <Column 
                         key={status}
                         nameColumn={status}
-                        cards={cards.filter((card) => card.status === status)} 
+                        tasks={tasks.filter((task) => task.status === status)} 
                     />
                 ))}					
                 </S.MainContent>}
