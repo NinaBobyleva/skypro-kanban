@@ -20,7 +20,6 @@ export function Login({ setIsAuth }) {
                 login: login,
                 password: password,
             }).then((responseData) => {
-                console.log(responseData.user.token);
                 setToken(responseData.user.token);
                 setIsAuth(true);
                 navigate(paths.HOME);

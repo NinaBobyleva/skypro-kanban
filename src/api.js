@@ -51,9 +51,13 @@ export async function Signup({ login, name, password }) {
             password,
         }),
     });
-    console.log(response);
+
     if (!response.ok) {
         throw new Error("Ошибка сервера");
+    }
+    
+    if (response === 400) {
+        throw new Error("Пользователь уже сущуствует!");
     }
 
     const data = await response.json();

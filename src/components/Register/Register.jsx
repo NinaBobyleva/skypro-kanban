@@ -15,22 +15,19 @@ export function Register({ setIsAuth }) {
     const [name, setName] = useState("");
     const [password, setPassword] = useState("");
 
-    const handleSubmitRegister = async (e) => {
+    const handleSubmitRegister = (e) => {
         e.preventDefault();
-        try {
-            await Signup({
-                login: login,
-                name: name,
-                password: password,
-            }).then((responseData) => {
-                console.log(responseData);
-                setToken(responseData.user.token);
-                setIsAuth(true);
-                navigate(paths.HOME);
-            })
-        } catch (error) {
+        Signup({
+            login: login,
+            name: name,
+            password: password,
+        }).then((responseData) => {
+            setIsAuth(true);
+            setToken(responseData.user.token);
+            navigate(paths.HOME);
+        }).catch(() => {
             alert("Пользователь уже сущуствует!");
-        }
+        })
     };
     return (
         <Wrapper>
@@ -40,11 +37,11 @@ export function Register({ setIsAuth }) {
                         <S.ModalTtl>
                             <h2>Регистрация</h2>
                         </S.ModalTtl>
-                        <S.ModalFormLogin id="formLogUp" onSubmit={handleSubmitRegister} action="#">
+                        <S.ModalFormLogin onSubmit={handleSubmitRegister} id="formLogUp" action="#">
                             <S.ModalInput className="first-name" value={name} onChange={(e) => setName(e.target.value)} type="text" name="first-name" id="first-name" placeholder="Имя" />
                             <S.ModalInput className="login" value={login} onChange={(e) => setLogin(e.target.value)} type="text" name="login" id="loginReg" placeholder="Эл. почта" />
                             <S.ModalInput className="password-first" value={password} onChange={(e) => setPassword(e.target.value)} type="password" name="password" id="passwordFirst" placeholder="Пароль" />
-                            <ModalBtnSignupEnt id="SignUpEnter">Зарегистрироваться</ModalBtnSignupEnt>
+                            <ModalBtnSignupEnt id="SignUpEnter"><a>Зарегистрироваться</a></ModalBtnSignupEnt>
                             <S.ModalFormGroup>
                                 <p>Уже есть аккаунт?  <Link to={paths.LOGIN}>Войдите здесь</Link></p>
                             </S.ModalFormGroup>
