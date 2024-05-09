@@ -19,8 +19,8 @@ export function Register({ setIsAuth }) {
         e.preventDefault();
         try {
             await Signup({
-                name: name,
                 login: login,
+                name: name,
                 password: password,
             }).then((responseData) => {
                 console.log(responseData);

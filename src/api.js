@@ -42,13 +42,12 @@ export async function Signin({ login, password }) {
     return data;
 }
 
-export async function Signup({ name, login, password }) {
-    console.log(password);
+export async function Signup({ login, name, password }) {
     const response = await fetch("https://wedev-api.sky.pro/api/user", {
         method: "POST",
         body: JSON.stringify({
-            name,
             login,
+            name,
             password,
         }),
     });
