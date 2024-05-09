@@ -10,19 +10,15 @@ export function Login({ setIsAuth }) {
 
     let navigate = useNavigate();
 
-    // const onLogin = () => {
-    //     setIsAuth(true);
-    //     navigate(paths.HOME);
-    // }
-    const [name, setName] = useState("");
-    const [email, setEmail] = useState("");
+    const [login, setLogin] = useState("");
+    const [password, setPassword] = useState("");
 
-    const handleSubmitInput = async (e) => {
+    const handleSubmitLogin = async (e) => {
         e.preventDefault();
         try {
             await Signin({
-                login: name,
-                password: email,
+                login: login,
+                password: password,
             }).then((responseData) => {
                 console.log(responseData.user.token);
                 setToken(responseData.user.token);
@@ -42,9 +38,9 @@ export function Login({ setIsAuth }) {
                         <S.ModalTtl>
                             <h2>Вход</h2>
                         </S.ModalTtl>
-                        <S.ModalFormLogin id="formLogIn" onSubmit={handleSubmitInput} action="#">
-                            <S.ModalInput type="text" value={name} onChange={(e) => setName(e.target.value)} name="login" id="formlogin" placeholder="Эл. почта" />
-                            <S.ModalInput type="password" value={email} onChange={(e) => setEmail(e.target.value)} name="password" id="formpassword" placeholder="Пароль" />
+                        <S.ModalFormLogin id="formLogIn" onSubmit={handleSubmitLogin} action="#">
+                            <S.ModalInput type="text" value={login} onChange={(e) => setLogin(e.target.value)} name="login" id="formlogin" placeholder="Эл. почта" />
+                            <S.ModalInput type="password" value={password} onChange={(e) => setPassword(e.target.value)} name="password" id="formpassword" placeholder="Пароль" />
                             <S.ModalBtnEnter type="submit" id="btnEnter">Войти</S.ModalBtnEnter>
                             <S.ModalFormGroup>
                                 <p>Нужно зарегистрироваться?</p>

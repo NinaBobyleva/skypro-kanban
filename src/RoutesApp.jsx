@@ -25,7 +25,7 @@ export function RoutesApp() {
                 </Route>
 
                 <Route path={paths.LOGIN} element={<LoginPage setIsAuth={setIsAuth} />} />
-                <Route path={paths.REGISTER} element={<RegisterPage />} />
+                <Route path={paths.REGISTER} element={<RegisterPage setIsAuth={setIsAuth} />} />
                 <Route path={paths.NOT_FOUND} element={<NotFoundPage />} />
             </Routes>
         </>

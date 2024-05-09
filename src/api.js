@@ -42,24 +42,22 @@ export async function Signin({ login, password }) {
     return data;
 }
 
-export async function Signup({ login, name, password }) {
+export async function Signup({ name, login, password }) {
+    console.log(password);
     const response = await fetch("https://wedev-api.sky.pro/api/user", {
         method: "POST",
         body: JSON.stringify({
-            login,
             name,
+            login,
             password,
-        })
+        }),
     });
-
+    console.log(response);
     if (!response.ok) {
         throw new Error("Ошибка сервера");
     }
 
-    if (response === 400) {
-        throw new Error("Пользователь с таким логином уже сущуствует!");
-    }
-
     const data = await response.json();
+    console.log(data);
     return data;
 }
