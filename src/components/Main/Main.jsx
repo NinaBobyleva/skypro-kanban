@@ -10,11 +10,12 @@ const statusList = [
     'Готово',
 ]
 
-function Main({ tasks, isLoading }) {
+function Main({ tasks, isLoading, isLoadingError }) {
     
     return <S.Main>
         <Container>
             <S.MainBlock>
+            <p>{isLoadingError}</p>
             {isLoading ? "Данные загружаются..." : <S.MainContent>
                 {statusList.map((status) => (
                     <Column 
