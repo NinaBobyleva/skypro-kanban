@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { paths } from "../../../paths";
 import * as S from "./popExit.styled";
 
-function PopExit({ setIsAuth }) {
+function PopExit({ setIsAuth}) {
     let navigate = useNavigate();
     const logOut = () => {
         setIsAuth(false);

@@ -11,9 +11,7 @@ import { ExitPage } from './pages/ExitPage/ExitPage'
 import { useState } from 'react';
 
 export function RoutesApp() {
-    const [isAuth, setIsAuth] = useState(true);
-    
-    // console.log(isAuth);
+    const [isAuth, setIsAuth] = useState(false);
     
     return (
         <>
@@ -26,7 +24,7 @@ export function RoutesApp() {
                     </Route>
                 </Route>
 
-                <Route path={paths.LOGIN} element={<LoginPage />} />
+                <Route path={paths.LOGIN} element={<LoginPage setIsAuth={setIsAuth} />} />
                 <Route path={paths.REGISTER} element={<RegisterPage />} />
                 <Route path={paths.NOT_FOUND} element={<NotFoundPage />} />
             </Routes>

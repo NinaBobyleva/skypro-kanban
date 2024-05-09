@@ -1,3 +1,3 @@
-export const taskList = [
+export const tasksList = [
 	{}
 ]

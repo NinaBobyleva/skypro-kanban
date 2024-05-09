@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import Main from '../../components/Main/Main';
 import Header from '../../components/Header/Header';
-import { taskList } from '../../data';
+import { tasksList } from '../../data';
 import { Wrapper } from '../../globalStyle.styled';
 import PopNewCard from '../../components/popups/PopNewCard/PopNewCard';
 import { Outlet } from 'react-router-dom';
@@ -10,20 +10,18 @@ import { getTasks } from '../../api';
 
 export function HomePage() {
 	const [isLoading, setIsLoading] = useState(false);
-	const [tasks, setTasks] = useState(taskList);
+	const [tasks, setTasks] = useState(tasksList);
 	const [isLoadingError, setIsLoadingError] = useState(null);
-
+	
 	useEffect(() => {
-		try {
-			setIsLoading(true);
-			getTasks().then((tasks) => {
+		setIsLoading(true);
+		getTasks().then((tasks) => {
 			setTasks(tasks.tasks);
 			setIsLoading(false);
-		});
-		} catch (error) {
-			setIsLoadingError(error.message);
+		}).catch(() => {
+			setIsLoadingError("Не удалось загрузить данные, попробуйте позже");
 			setIsLoading(false);
-		}
+		})
 	}, []);
 
 	function addCard(e) {
@@ -47,3 +45,4 @@ export function HomePage() {
 		</Wrapper>
 	);
 }
+

@@ -7,8 +7,8 @@ function Column({ nameColumn, tasks }) {
         {nameColumn}
     </S.ColumnTitle>
     <S.Cards>
-        {tasks.map(task => (
-            <Card key={task.id} task={task} />
+        {tasks.map((task, index) => (
+            <Card key={index} task={task} />
         ))}
     </S.Cards>
 </S.MainColumn>
