@@ -1,5 +1,10 @@
 import styled from "styled-components";
 
+export const Err = styled.p`
+    padding-top: 8px;
+    color: red;
+`;
+
 export const ModalBtnSignupEnt = styled.button`
     width: 100%;
     height: 30px;
@@ -18,12 +23,12 @@ export const ModalBtnSignupEnt = styled.button`
     letter-spacing: -0.14px;
     color: #FFFFFF;
     a {
-    width: 100%;
-    height: 100%;
-    color: #FFFFFF;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+        width: 100%;
+        height: 100%;
+        color: #FFFFFF;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
     @media screen and (max-width: 375px) {
         height: 40px;

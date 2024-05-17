@@ -10,20 +10,21 @@ const statusList = [
     'Готово',
 ]
 
-function Main({ cards, isLoading }) {
+function Main({ tasks, isLoading, isLoadingError }) {
     
     return <S.Main>
         <Container>
             <S.MainBlock>
-            {isLoading ? "Данные загружаются..." : <S.MainContent>
+            {isLoadingError ? <p>{isLoadingError}</p> : isLoading ? "Данные загружаются..." : <S.MainContent>
                 {statusList.map((status) => (
                     <Column 
                         key={status}
                         nameColumn={status}
-                        cards={cards.filter((card) => card.status === status)} 
+                        tasks={tasks.filter((task) => task.status === status)} 
                     />
                 ))}					
-                </S.MainContent>}
+                </S.MainContent> }
+            
             </S.MainBlock>
         </Container>
     </S.Main>;

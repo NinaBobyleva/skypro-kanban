@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import * as S from "./card.styled";
 
-function Card({ card }) {
+function Card({ task }) {
     const colors = {
         'Web Design': '_orange',
         'Research': '_green',
@@ -10,11 +10,11 @@ function Card({ card }) {
     return <S.CardsItem>
     <S.CardsCard>
         <S.CardGroup>
-            <S.CardTheme $topicStyle={`${colors[card.topic]}`}>
-            <S.TopicText $topicStyle={`${colors[card.topic]}`}>{card.topic}</S.TopicText>  
+            <S.CardTheme $topicStyle={`${colors[task.topic]}`}>
+            <S.TopicText $topicStyle={`${colors[task.topic]}`}>{task.topic}</S.TopicText>  
             </S.CardTheme>
             {/* <a href="#popBrowse" target="_self"> */}
-                <Link to={`/card/${card.id}`}>
+                <Link to={`/card/${task._id}`}>
                     <S.CardBtn>
                         <S.CardDiv></S.CardDiv>
                         <S.CardDiv></S.CardDiv>
@@ -26,7 +26,7 @@ function Card({ card }) {
         </S.CardGroup>
         <S.CardContent>
             <a href="" target="_blank">
-                <S.CardTitle>{card.title}</S.CardTitle>
+                <S.CardTitle>{task.title}</S.CardTitle>
             </a>
             <S.CardDate>
                 <S.CardSvg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13" fill="none">
@@ -40,7 +40,7 @@ function Card({ card }) {
                         </clipPath>
                     </defs>
                 </S.CardSvg>
-                <S.CardP>{card.date}</S.CardP>
+                <S.CardP>{task.date}</S.CardP>
             </S.CardDate>
         </S.CardContent>
     </S.CardsCard>
