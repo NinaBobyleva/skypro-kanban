@@ -1,6 +1,18 @@
+import { useState } from "react";
 import Calendar from "../../Calendar/Calendar"
 
 function PopNewCard() {
+    const [newInputTask, setNewInputTask] = useState({
+        title: "",
+        description: "",
+
+    });
+
+    const onChangedInputTask = (e) => {
+        const {value, name} = e.target;
+        setNewInputTask({...newInputTask, [name]: value});
+    }
+
     return <div className="pop-new-card" id="popNewCard">
     <div className="pop-new-card__container">
         <div className="pop-new-card__block">
@@ -11,11 +23,11 @@ function PopNewCard() {
                     <form className="pop-new-card__form form-new" id="formNewCard" action="#">
                         <div className="form-new__block">
                             <label htmlFor="formTitle" className="subttl">Название задачи</label>
-                            <input className="form-new__input" type="text" name="name" id="formTitle" placeholder="Введите название задачи..." autoFocus/>
+                            <input onChange={onChangedInputTask} className="form-new__input" type="text" value={newInputTask.title} name="title" id="formTitle" placeholder="Введите название задачи..." autoFocus/>
                         </div>
                         <div className="form-new__block">
                             <label htmlFor="textArea" className="subttl">Описание задачи</label>
-                            <textarea className="form-new__area" name="text" id="textArea"  placeholder="Введите описание задачи..."></textarea>
+                            <textarea onChange={onChangedInputTask} className="form-new__area" value={newInputTask.description} name="description" id="textArea"  placeholder="Введите описание задачи..."></textarea>
                         </div>
                     </form>
                     <Calendar/>

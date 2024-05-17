@@ -1,16 +1,15 @@
 import { Link } from "react-router-dom";
-import { useNavigate } from 'react-router-dom';
 import { Wrapper } from "../../globalStyle.styled";
 import * as S from "./login.styled";
 import { paths } from "../../paths";
-import { useState } from "react";
-// import { setToken } from "../../api/cardsApi";
+import { useContext, useState } from "react";
 import { Signin } from "../../api/auth";
 import { Err } from "../Register/register.styled";
+import { UserContext } from "../../context/userContext";
 
-export function Login({ setIsAuth }) {
+export function Login() {
 
-    let navigate = useNavigate();
+    const {loginUser} = useContext(UserContext);
 
     const [errMessage, setErrMessage] = useState('');
 
@@ -36,10 +35,8 @@ export function Login({ setIsAuth }) {
         try {
             await Signin(inputValue).then((responseData) => {
                 setErrMessage('');
-                //  setToken(responseData.user.token);
-                setIsAuth(responseData.user);
-                localStorage.setItem('user', JSON.stringify(responseData.user));
-                navigate(paths.HOME);
+                loginUser(responseData);
+                
             })
         } catch (error) {
             setErrMessage("Логин или пароль введен не верно!");

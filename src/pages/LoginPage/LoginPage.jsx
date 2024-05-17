@@ -1,7 +1,7 @@
 import { Login } from '../../components/Login/Login';
 
-export function LoginPage({ setIsAuth }) {
+export function LoginPage() {
     return (
-        <Login setIsAuth={setIsAuth} />
+        <Login />
     );
 }
