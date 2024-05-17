@@ -5,17 +5,17 @@ import { tasksList } from '../../data';
 import { Wrapper } from '../../globalStyle.styled';
 import PopNewCard from '../../components/popups/PopNewCard/PopNewCard';
 import { Outlet } from 'react-router-dom';
-import { getTasks } from '../../api';
+import { getTasks } from '../../api/cardsApi';
 
 
-export function HomePage() {
+export function HomePage({ isAuth }) {
 	const [isLoading, setIsLoading] = useState(false);
 	const [tasks, setTasks] = useState(tasksList);
 	const [isLoadingError, setIsLoadingError] = useState(null);
 	
 	useEffect(() => {
 		setIsLoading(true);
-		getTasks().then((tasks) => {
+		getTasks(isAuth.token).then((tasks) => {
 			setTasks(tasks.tasks);
 			setIsLoading(false);
 		}).catch(() => {
@@ -39,7 +39,7 @@ export function HomePage() {
 	return (
 		<Wrapper>
 			<PopNewCard />
-			<Header addCard={addCard} />
+			<Header isAuth={isAuth} addCard={addCard} />
 			<Main tasks={tasks} isLoading={isLoading} isLoadingError={isLoadingError} />
 			<Outlet />
 		</Wrapper>

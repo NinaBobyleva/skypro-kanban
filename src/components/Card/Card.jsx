@@ -14,7 +14,7 @@ function Card({ task }) {
             <S.TopicText $topicStyle={`${colors[task.topic]}`}>{task.topic}</S.TopicText>  
             </S.CardTheme>
             {/* <a href="#popBrowse" target="_self"> */}
-                <Link to={`/card/${task.id}`}>
+                <Link to={`/card/${task._id}`}>
                     <S.CardBtn>
                         <S.CardDiv></S.CardDiv>
                         <S.CardDiv></S.CardDiv>

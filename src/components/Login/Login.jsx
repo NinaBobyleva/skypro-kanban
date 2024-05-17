@@ -4,28 +4,45 @@ import { Wrapper } from "../../globalStyle.styled";
 import * as S from "./login.styled";
 import { paths } from "../../paths";
 import { useState } from "react";
-import { Signin, setToken } from "../../api";
+// import { setToken } from "../../api/cardsApi";
+import { Signin } from "../../api/auth";
+import { Err } from "../Register/register.styled";
 
 export function Login({ setIsAuth }) {
 
     let navigate = useNavigate();
 
-    const [login, setLogin] = useState("");
-    const [password, setPassword] = useState("");
+    const [errMessage, setErrMessage] = useState('');
+
+    const [inputValue, setInputValue] = useState({
+        login: '',
+        password: ''
+    });
+
+    const onChangedInput = (e) => {
+        const {value, name} = e.target;
+        setInputValue({...inputValue, [name]: value});
+    }
 
     const handleSubmitLogin = async (e) => {
         e.preventDefault();
+
+        const {login, password} = inputValue;
+
+        if (!login || !password) {
+            return setErrMessage("Заполните все поля!");
+        }
+
         try {
-            await Signin({
-                login: login,
-                password: password,
-            }).then((responseData) => {
-                setToken(responseData.user.token);
-                setIsAuth(true);
+            await Signin(inputValue).then((responseData) => {
+                setErrMessage('');
+                //  setToken(responseData.user.token);
+                setIsAuth(responseData.user);
+                localStorage.setItem('user', JSON.stringify(responseData.user));
                 navigate(paths.HOME);
             })
         } catch (error) {
-            alert("Логин или пароль введен не верно!");
+            setErrMessage("Логин или пароль введен не верно!");
         }
     };
 
@@ -38,8 +55,9 @@ export function Login({ setIsAuth }) {
                             <h2>Вход</h2>
                         </S.ModalTtl>
                         <S.ModalFormLogin id="formLogIn" onSubmit={handleSubmitLogin} action="#">
-                            <S.ModalInput type="text" value={login} onChange={(e) => setLogin(e.target.value)} name="login" id="formlogin" placeholder="Эл. почта" />
-                            <S.ModalInput type="password" value={password} onChange={(e) => setPassword(e.target.value)} name="password" id="formpassword" placeholder="Пароль" />
+                            <S.ModalInput onChange={onChangedInput} type="text" value={inputValue.login} name="login" id="formlogin" placeholder="Эл. почта" />
+                            <S.ModalInput onChange={onChangedInput} type="password" value={inputValue.password} name="password" id="formpassword" placeholder="Пароль" />
+                            <Err>{errMessage}</Err>
                             <S.ModalBtnEnter type="submit" id="btnEnter">Войти</S.ModalBtnEnter>
                             <S.ModalFormGroup>
                                 <p>Нужно зарегистрироваться?</p>

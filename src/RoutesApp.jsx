@@ -10,15 +10,25 @@ import { NotFoundPage } from './pages/NotFoundPage/NotFoundPage';
 import { ExitPage } from './pages/ExitPage/ExitPage'
 import { useState } from 'react';
 
+function getLocalStorage() {
+    let user = '';
+    try {
+        user = JSON.parse(localStorage.getItem('user'));
+        return user;
+    } catch (error) {
+        return '';
+    }
+}
+
 export function RoutesApp() {
-    const [isAuth, setIsAuth] = useState(false);
+    const [isAuth, setIsAuth] = useState(getLocalStorage());
     
     return (
         <>
             <GlobalStyle />
             <Routes>
                 <Route element={<PrivateRoute isAuth={isAuth} />}>
-                    <Route path={paths.HOME} element={<HomePage />}>
+                    <Route path={paths.HOME} element={<HomePage isAuth={isAuth} />}>
                         <Route path={paths.EXIT} element={<ExitPage setIsAuth={setIsAuth} />} />
                         <Route path={paths.CARD_ID} element={<CardPage />} />
                     </Route>

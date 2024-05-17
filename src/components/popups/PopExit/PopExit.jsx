@@ -1,12 +1,9 @@
-import { useNavigate } from "react-router-dom";
 import { paths } from "../../../paths";
 import * as S from "./popExit.styled";
 
-function PopExit({ setIsAuth}) {
-    let navigate = useNavigate();
+function PopExit({ setIsAuth }) {
     const logOut = () => {
-        setIsAuth(false);
-        navigate(paths.LOGIN);
+        setIsAuth('');
     }
     return <S.PopExit id="popExit">
     <S.PopExitContainer>

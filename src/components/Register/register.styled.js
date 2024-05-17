@@ -1,5 +1,10 @@
 import styled from "styled-components";
 
+export const Err = styled.p`
+    padding-top: 8px;
+    color: red;
+`;
+
 export const ModalBtnSignupEnt = styled.button`
     width: 100%;
     height: 30px;

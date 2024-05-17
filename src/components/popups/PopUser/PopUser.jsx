@@ -1,11 +1,11 @@
 import { paths } from "../../../paths";
 import * as S from "./popUser.styled";
 
-function PopUser() {
+function PopUser({ isAuth }) {
     return <S.HeaderPopUserSet id="user-set-target">
     <S.PopUserSet>
-    <S.PopUserSetName>Ivan Ivanov</S.PopUserSetName>
-    <S.PopUserSetMail>ivan.ivanov@gmail.com</S.PopUserSetMail>
+    <S.PopUserSetName>{isAuth.name}</S.PopUserSetName>
+    <S.PopUserSetMail>{isAuth.login}</S.PopUserSetMail>
     <S.PopUserSetTheme>
         <S.PopUserSetThemeP>Темная тема</S.PopUserSetThemeP>
         <S.PopUserSetThemeInput type="checkbox" className="checkbox" name="checkbox"/>

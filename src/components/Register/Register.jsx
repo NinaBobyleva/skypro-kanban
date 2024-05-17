@@ -2,31 +2,43 @@ import { Wrapper } from "../../globalStyle.styled";
 import { Link } from "react-router-dom";
 import { paths } from "../../paths";
 import * as S from "../Login/login.styled";
-import { ModalBtnSignupEnt } from "./register.styled";
+import { ModalBtnSignupEnt, Err } from "./register.styled";
 import { useNavigate } from 'react-router-dom';
 import { useState } from "react";
-import { setToken } from "../../api";
-import { Signup } from "../../api";
+// import { setToken } from "../../api/cardsApi";
+import { Signup } from "../../api/auth";
 
 export function Register({ setIsAuth }) {
     let navigate = useNavigate();
 
-    const [login, setLogin] = useState("");
-    const [name, setName] = useState("");
-    const [password, setPassword] = useState("");
+    const [errMessage, setErrMessage] = useState('');
+
+    const [inputValue, setInputValue] = useState({
+        login: '',
+        name: '',
+        password: ''
+    });
+
+    const onChangedInput = (e) => {
+        const {value, name} = e.target;
+        setInputValue({...inputValue, [name]: value});
+    }
 
     const handleSubmitRegister = (e) => {
         e.preventDefault();
-        Signup({
-            login: login,
-            name: name,
-            password: password,
-        }).then((responseData) => {
+        const {login, name, password} = inputValue;
+
+        if (!login || !name || !password) {
+            return setErrMessage("Заполните все поля!");
+        }
+
+        Signup(inputValue).then((responseData) => {
+            setErrMessage('');
             setIsAuth(true);
-            setToken(responseData.user.token);
+            // setToken(responseData.user.token);
             navigate(paths.HOME);
-        }).catch(() => {
-            alert("Пользователь уже сущуствует!");
+        }).catch((error) => {
+            setErrMessage(error.message);
         })
     };
     return (
@@ -38,9 +50,10 @@ export function Register({ setIsAuth }) {
                             <h2>Регистрация</h2>
                         </S.ModalTtl>
                         <S.ModalFormLogin onSubmit={handleSubmitRegister} id="formLogUp" action="#">
-                            <S.ModalInput className="first-name" value={name} onChange={(e) => setName(e.target.value)} type="text" name="first-name" id="first-name" placeholder="Имя" />
-                            <S.ModalInput className="login" value={login} onChange={(e) => setLogin(e.target.value)} type="text" name="login" id="loginReg" placeholder="Эл. почта" />
-                            <S.ModalInput className="password-first" value={password} onChange={(e) => setPassword(e.target.value)} type="password" name="password" id="passwordFirst" placeholder="Пароль" />
+                            <S.ModalInput onChange={onChangedInput} className="first-name" value={inputValue.name} type="text" name="name" id="first-name" placeholder="Имя" />
+                            <S.ModalInput onChange={onChangedInput} className="login" value={inputValue.login} type="text" name="login" id="loginReg" placeholder="Эл. почта" />
+                            <S.ModalInput onChange={onChangedInput} className="password-first" value={inputValue.password} type="password" name="password" id="passwordFirst" placeholder="Пароль" />
+                            <Err>{errMessage}</Err>
                             <ModalBtnSignupEnt id="SignUpEnter"><a>Зарегистрироваться</a></ModalBtnSignupEnt>
                             <S.ModalFormGroup>
                                 <p>Уже есть аккаунт?  <Link to={paths.LOGIN}>Войдите здесь</Link></p>

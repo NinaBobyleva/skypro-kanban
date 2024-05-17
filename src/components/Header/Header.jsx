@@ -3,7 +3,7 @@ import { useState } from "react";
 import * as S from "./header.styled";
 import PopUser from "../popups/PopUser/PopUser";
 
-function Header({ addCard }) {
+function Header({ isAuth, addCard }) {
     const [isOpenModalUser, setIsOpenModalUser] = useState(false);
 
     function userClick(e) {
@@ -22,8 +22,8 @@ function Header({ addCard }) {
             </S.HeaderLogo>
             <S.HeaderNav>
                 <S.HeaderBtnMainNew id="btnMainNew"><S.HeaderBtnMainNewA href="#popNewCard" onClick={addCard}>Создать новую задачу</S.HeaderBtnMainNewA></S.HeaderBtnMainNew>
-                <S.HeaderUser href="#user-set-target" onClick={userClick}>Ivan Ivanov</S.HeaderUser>
-                {isOpenModalUser && <PopUser />}
+                <S.HeaderUser href="#user-set-target" onClick={userClick}>{isAuth.name}</S.HeaderUser>
+                {isOpenModalUser && <PopUser isAuth={isAuth} />}
             </S.HeaderNav>					
         </S.HeaderBlock>
     </Container>			
