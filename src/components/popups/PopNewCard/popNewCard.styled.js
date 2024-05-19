@@ -2,6 +2,8 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { Hover1, Subttl } from "../../../globalStyle.styled";
 
+// export const Orange = 
+
 export const PopNewCard = styled.div`
     width: 100%;
     min-width: 375px;
@@ -186,19 +188,23 @@ export const CategoriesThemes = styled.div`
 
 export const CategoriesTheme = styled.div`
     display: inline-block;
-    width: auto;
+    width: 115px;
     height: 30px;
-    padding: 8px;
+    text-align: center;
+    padding: 5px 20px;
     border-radius: 24px;
     margin-right: 7px;
-    opacity: 0.4;
+    opacity: ${({$isActiv}) => $isActiv ? '1' : '0.4'};
+    label {
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 14px;
+        white-space: nowrap;
+    }
 `;
 
-export const CategoriesThemeP = styled(CategoriesTheme)`
-    font-size: 14px;
-    font-weight: 600;
-    line-height: 14px;
-    white-space: nowrap;
+export const RadioInput = styled.input`
+    display: none;
 `;
 
 export const FormNewCreate = styled.button`

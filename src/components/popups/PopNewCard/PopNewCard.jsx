@@ -6,19 +6,27 @@ import { UserContext } from "../../../context/userContext";
 import { postNewTasks } from "../../../api/cardsApi";
 import { useNavigate } from "react-router-dom";
 import { CardsContext } from "../../../context/cardContext";
+import { topicStyles } from "../../../lib/topic";
 // import { topicStyles } from "../../../lib/topic";
 
 
 function PopNewCard() {
+    const colors = {
+        'Web Design': '_orange',
+        'Research': '_green',
+        'Copywriting': '_purple',
+    }
+
     const {user} = useContext(UserContext);
     const [error, setError] = useState('');
     const {setTasks} = useContext(CardsContext);
     const navigation = useNavigate();
     const [date, setDate] = useState(new Date());
+    const [topic, setTopic] = useState('');
 
     const [newInputTask, setNewInputTask] = useState({
         title: '',
-        topic: '',
+        // topic: '',
         status: 'Без статуса',
         description: '',
     });
@@ -36,7 +44,7 @@ function PopNewCard() {
         }
 
         const title = newInputTask.title || "Новая задача";
-        const topic = newInputTask.topic || "Research";
+        // const topic = newInputTask.topic || "Research";
 
         const newTask = {
             ...newInputTask,
@@ -75,14 +83,17 @@ function PopNewCard() {
                     <S.Categories>
                         <S.CategoriesP>Категория</S.CategoriesP>
                         <S.CategoriesThemes>
-                            <S.CategoriesTheme className="_orange _active-category">
-                                <S.CategoriesThemeP className="_orange">Web Design</S.CategoriesThemeP>
+                            <S.CategoriesTheme $isActiv={topic === 'Web Design'} className="_orange">
+                                <label htmlFor="category1">Web Design</label>
+                                <S.RadioInput onChange={(e) => {setTopic(e.target.value)}} type="radio" name="category" id="category1" value={'Web Design'} />
                             </S.CategoriesTheme>
-                            <S.CategoriesTheme className="_green">
-                                <S.CategoriesThemeP className="_green">Research</S.CategoriesThemeP>
+                            <S.CategoriesTheme $isActiv={topic === 'Research'} className="_green">
+                                <label htmlFor="category2">Research</label>
+                                <S.RadioInput onChange={(e) => {setTopic(e.target.value)}} type="radio" name="category" id="category2" value={'Research'} />
                             </S.CategoriesTheme>
-                            <S.CategoriesTheme className="_purple">
-                                <S.CategoriesThemeP className="_purple">Copywriting</S.CategoriesThemeP>
+                            <S.CategoriesTheme $isActiv={topic === 'Copywriting'} className="_purple">
+                                <label htmlFor="category3">Copywriting</label>
+                                <S.RadioInput onChange={(e) => {setTopic(e.target.value)}} type="radio" name="category" id="category3" value={'Copywriting'} />
                             </S.CategoriesTheme>
                         </S.CategoriesThemes>
                     </S.Categories>
