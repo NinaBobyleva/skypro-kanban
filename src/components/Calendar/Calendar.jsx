@@ -4,21 +4,17 @@ import * as S from "./Calendar.styled";
 import { ru } from "date-fns/locale/ru";
 
 function Calendar({date, setDate}) {
-    // const [isActiv, setIsActiv] = useState(false);
+    const [value, setValue] = useState(<S.TitleDayPicker>Выберите срок исполнения.</S.TitleDayPicker>);
 
-    const getDateFormat = (date) => {
-        const formatDate = date.toLocaleDateString("RU-ru");
+    const formatDate = date.toLocaleDateString("RU-ru");
+
+    const handleDayClick = (day) => {
+        setValue(<S.TitleDayPicker>Срок исполнения: <S.SpanDayPicker>{formatDate}</S.SpanDayPicker></S.TitleDayPicker>);
     }
-
-    let footer = <S.TitleDayPicker>Выберите срок исполнения.</S.TitleDayPicker>;
-
-    footer = (
-        <S.TitleDayPicker>Выберите срок исполнения.</S.TitleDayPicker>
-    )
 
     return <S.Calendar className="pop-new-card__calendar">
     <S.CalendarTtl>Даты</S.CalendarTtl>
-    <S.DayPick mode="single" selected={date} onSelect={setDate} footer={footer} locale={ru} />								
+    <S.DayPick onDayClick={handleDayClick} mode="single" selected={date} onSelect={setDate} footer={value} locale={ru} />								
     {/* <S.CalendarBlock>
         <S.CalendarNav>
             <S.CalendarMonth>Сентябрь 2023</S.CalendarMonth>
@@ -92,5 +88,3 @@ function Calendar({date, setDate}) {
 </S.Calendar>;
 }
 export default Calendar;
-
-// Срок исполнения: <S.SpanDayPicker>{formatDate}</S.SpanDayPicker>
