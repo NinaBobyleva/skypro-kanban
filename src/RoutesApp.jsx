@@ -9,17 +9,14 @@ import { CardPage } from './pages/CardPage/CardPage';
 import { NotFoundPage } from './pages/NotFoundPage/NotFoundPage';
 import { ExitPage } from './pages/ExitPage/ExitPage'
 import { NewCardPage } from './pages/NewCardPage/NewCardPage';
-import { useContext } from 'react';
-import { UserContext } from './context/userContext';
 
 export function RoutesApp() {
-    const {user} = useContext(UserContext);
     
     return (
         <>
             <GlobalStyle />
             <Routes>
-                <Route element={<PrivateRoute user={user} />}>
+                <Route element={<PrivateRoute />}>
                     <Route path={paths.HOME} element={<HomePage />}>
                         <Route path={paths.EXIT} element={<ExitPage />} />
                         <Route path={paths.CARD_ID} element={<CardPage />} />

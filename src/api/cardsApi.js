@@ -20,16 +20,10 @@ export async function getTasks(token) {
     return data;
 }
 
-export async function postTasks(token) {
+export async function postNewTasks({token, newTasks}) {
     const response = await fetch(kanbanURL, {
         method: "POST",
-        body: {
-            title: "",
-            topic: "",
-            status: "Без статуса",
-            descrition: "",
-            date: new Date(),
-        },
+        body: JSON.stringify(newTasks),
         headers: {
             Authorization: `Bearer ${token}`,
         },
@@ -41,6 +35,10 @@ export async function postTasks(token) {
 
     if (response.status === 401) {
         throw new Error("Нет авторизации!");
+    }
+
+    if (response.status === 400) {
+        throw new Error("Полученные данные не в формате JSON!");
     }
 
     const data = await response.json();

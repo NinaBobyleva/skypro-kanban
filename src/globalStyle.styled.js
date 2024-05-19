@@ -96,3 +96,10 @@ export const Hover3 = css`
 export const Hover3A = styled.a`
   color: #FFFFFF;
 `;
+
+export const Subttl = css`
+  color: #000;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1;
+`;

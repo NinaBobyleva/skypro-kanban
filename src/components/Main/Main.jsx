@@ -20,9 +20,9 @@ function Main({ tasks, isLoading, isLoadingError }) {
                     <Column 
                         key={status}
                         nameColumn={status}
-                        tasks={tasks.filter((task) => task.status === status)} 
+                        tasks={tasks.filter((el) => el.status === status)} 
                     />
-                ))}					
+                ))}
                 </S.MainContent> }
             
             </S.MainBlock>
