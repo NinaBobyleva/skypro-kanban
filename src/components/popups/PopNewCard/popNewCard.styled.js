@@ -188,7 +188,6 @@ export const CategoriesThemes = styled.div`
 
 export const CategoriesTheme = styled.div`
     display: inline-block;
-    width: 115px;
     height: 30px;
     text-align: center;
     padding: 5px 20px;
