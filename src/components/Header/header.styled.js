@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Hover1, Hover2 } from "../../globalStyle.styled";
+import { Link } from "react-router-dom";
 
 export const Header = styled.div`
     width: 100%;
@@ -58,7 +59,7 @@ export const HeaderBtnMainNew = styled.button`
     }
 `;
 
-export const HeaderBtnMainNewA = styled.a`
+export const HeaderBtnMainNewA = styled(Link)`
     color: #FFFFFF;
 `;
 

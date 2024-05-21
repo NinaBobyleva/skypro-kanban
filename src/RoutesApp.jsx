@@ -8,34 +8,24 @@ import { paths } from './paths';
 import { CardPage } from './pages/CardPage/CardPage';
 import { NotFoundPage } from './pages/NotFoundPage/NotFoundPage';
 import { ExitPage } from './pages/ExitPage/ExitPage'
-import { useState } from 'react';
-
-function getLocalStorage() {
-    let user = '';
-    try {
-        user = JSON.parse(localStorage.getItem('user'));
-        return user;
-    } catch (error) {
-        return '';
-    }
-}
+import { NewCardPage } from './pages/NewCardPage/NewCardPage';
 
 export function RoutesApp() {
-    const [isAuth, setIsAuth] = useState(getLocalStorage());
     
     return (
         <>
             <GlobalStyle />
             <Routes>
-                <Route element={<PrivateRoute isAuth={isAuth} />}>
-                    <Route path={paths.HOME} element={<HomePage isAuth={isAuth} />}>
-                        <Route path={paths.EXIT} element={<ExitPage setIsAuth={setIsAuth} />} />
+                <Route element={<PrivateRoute />}>
+                    <Route path={paths.HOME} element={<HomePage />}>
+                        <Route path={paths.EXIT} element={<ExitPage />} />
                         <Route path={paths.CARD_ID} element={<CardPage />} />
+                        <Route path={paths.NEW_CARD} element={<NewCardPage />} />
                     </Route>
                 </Route>
 
-                <Route path={paths.LOGIN} element={<LoginPage setIsAuth={setIsAuth} />} />
-                <Route path={paths.REGISTER} element={<RegisterPage setIsAuth={setIsAuth} />} />
+                <Route path={paths.LOGIN} element={<LoginPage />} />
+                <Route path={paths.REGISTER} element={<RegisterPage />} />
                 <Route path={paths.NOT_FOUND} element={<NotFoundPage />} />
             </Routes>
         </>

@@ -2,8 +2,11 @@ import { paths } from "../../../paths";
 import { Link } from "react-router-dom";
 import Calendar from "../../Calendar/Calendar";
 import { useParams } from 'react-router-dom';
+import { useState } from "react";
 
 function PopBrowse() {
+    const [date, setDate] = useState(new Date());
+
     const { id } = useParams();
 
     return <div className="pop-browse" id="popBrowse">
@@ -43,7 +46,7 @@ function PopBrowse() {
                             <textarea className="form-browse__area" name="text" id="textArea01"  readOnly placeholder="Введите описание задачи..."></textarea>
                         </div>
                     </form>
-                    <Calendar/>
+                    <Calendar date={date} setDate={setDate}/>
                 </div>
                 <div className="theme-down__categories theme-down">
                     <p className="categories__p subttl">Категория</p>

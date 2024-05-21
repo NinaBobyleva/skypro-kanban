@@ -1,7 +1,7 @@
 import { Register } from "../../components/Register/Register";
 
-export function RegisterPage({ setIsAuth }) {
+export function RegisterPage() {
     return (
-        <Register setIsAuth={setIsAuth} />
+        <Register />
     )
 }

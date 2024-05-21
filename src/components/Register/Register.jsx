@@ -5,10 +5,9 @@ import * as S from "../Login/login.styled";
 import { ModalBtnSignupEnt, Err } from "./register.styled";
 import { useNavigate } from 'react-router-dom';
 import { useState } from "react";
-// import { setToken } from "../../api/cardsApi";
 import { Signup } from "../../api/auth";
 
-export function Register({ setIsAuth }) {
+export function Register() {
     let navigate = useNavigate();
 
     const [errMessage, setErrMessage] = useState('');
@@ -34,7 +33,7 @@ export function Register({ setIsAuth }) {
 
         Signup(inputValue).then((responseData) => {
             setErrMessage('');
-            setIsAuth(true);
+            // setIsAuth(true);
             // setToken(responseData.user.token);
             navigate(paths.HOME);
         }).catch((error) => {

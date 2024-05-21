@@ -1,4 +1,14 @@
 import { styled } from "styled-components";
+import { Subttl } from "../../globalStyle.styled";
+import { DayPicker } from "react-day-picker";
+
+export const TitleDayPicker = styled.p`
+    padding-top: 7px;
+`;
+
+export const SpanDayPicker = styled.span`
+    color: #000000;
+`;
 
 export const Calendar = styled.div`
     width: 182px;
@@ -15,13 +25,18 @@ export const CalendarTtl = styled.p`
     @media screen and (max-width: 660px){
         padding: 0;
     }
+    ${Subttl}
 `;
 
-export const Subttl = styled(CalendarTtl)`
-  color: #000;
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 1;
+export const DayPick = styled(DayPicker)`
+    --rdp-cell-size: 22px;
+    --rdp-caption-font-size: 14px;
+    --rdp-background-color: #EAEEF6;
+    --rdp-background-color-dark: #94A6BE;
+    --rdp-accent-color: #94A6BE;
+    font-size: 10px;
+    color: #94A6BE;
+    margin: 0;
 `;
 
 export const CalendarBlock = styled.div`
