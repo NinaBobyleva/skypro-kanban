@@ -13,7 +13,6 @@ function Card({ task }) {
             <S.CardTheme $topicStyle={`${colors[task.topic]}`}>
             <S.TopicText $topicStyle={`${colors[task.topic]}`}>{task.topic}</S.TopicText>  
             </S.CardTheme>
-            {/* <a href="#popBrowse" target="_self"> */}
                 <Link to={`/card/${task._id}`}>
                     <S.CardBtn>
                         <S.CardDiv></S.CardDiv>
@@ -21,8 +20,6 @@ function Card({ task }) {
                         <S.CardDiv></S.CardDiv>
                     </S.CardBtn>
                 </Link>
-                
-            {/* </a> */}
         </S.CardGroup>
         <S.CardContent>
             <a href="" target="_blank">

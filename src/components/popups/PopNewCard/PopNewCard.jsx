@@ -6,17 +6,11 @@ import { UserContext } from "../../../context/userContext";
 import { postNewTasks } from "../../../api/cardsApi";
 import { useNavigate } from "react-router-dom";
 import { CardsContext } from "../../../context/cardContext";
-import { topicStyles } from "../../../lib/topic";
 // import { topicStyles } from "../../../lib/topic";
 
 
 function PopNewCard() {
-    const colors = {
-        'Web Design': '_orange',
-        'Research': '_green',
-        'Copywriting': '_purple',
-    }
-
+    
     const {user} = useContext(UserContext);
     const [error, setError] = useState('');
     const {setTasks} = useContext(CardsContext);

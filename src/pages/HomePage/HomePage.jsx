@@ -25,17 +25,6 @@ export function HomePage() {
 		})
 	}, []);
 
-	// function addCard(e) {
-	// 	e.preventDefault();
-	// 	const newTask = {
-	// 		topic: 'Web Design',
-	// 		title: 'Название задачи!',
-	// 		date: '30.10.23',
-	// 		status: 'Без статуса',
-	// 	};
-	// 	// setTasks([...tasks, newTask])
-	// }
-
 	return (
 		<Wrapper>
 			<Header user={user} />

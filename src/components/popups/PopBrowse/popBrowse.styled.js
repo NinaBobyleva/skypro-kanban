@@ -3,7 +3,11 @@ import { Hover1, Hover3, Subttl } from "../../../globalStyle.styled";
 import { Link } from "react-router-dom";
 
 export const Hide = styled.div`
-    display: none;
+    display: ${props => props.$onClick ? 'block' : 'none' };
+`;
+
+export const Show = styled.div`
+    display: ${props => props.$onClick ? 'none' : 'block' };
 `;
 
 export const PopBrowse = styled.div`
@@ -192,6 +196,7 @@ export const FormBrowseArea = styled.div`
 `;
 
 export const PopBrowseBtnBrowse = styled.div`
+    display: none;
     display: flex;
     flex-wrap: wrap;
     align-items: flex-start;
