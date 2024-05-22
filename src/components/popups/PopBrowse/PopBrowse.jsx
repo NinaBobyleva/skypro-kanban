@@ -7,29 +7,32 @@ import { CategoriesP, CategoriesTheme } from "../PopNewCard/popNewCard.styled";
 import { CardsContext } from "../../../context/cardContext";
 import { useContext } from "react";
 import { UserContext } from "../../../context/userContext";
-// import { deleteTasks } from "../../../api/cardsApi";
+import { deleteTasks } from "../../../api/cardsApi";
 
 function PopBrowse() {
     const [date, setDate] = useState(new Date());
     const {tasks, setTasks} = useContext(CardsContext);
-    // const {user, setUser} = useContext(UserContext);
-    // const navigate = useNavigate();
+    const {user, setUser} = useContext(UserContext);
+    const {error, setError} = useState('');
+    const navigate = useNavigate();
     const {id} = useParams();
     const tasksCard = tasks.find((task) => task._id === id);
     console.log(tasksCard);
+    
+    // setDate(<S.TitleDayPicker>Срок исполнения: {tasksCard.date}</S.TitleDayPicker>);
+
+    const deleteCards = () => {
+        deleteTasks({token: user.token, id}).then((res) => {
+            console.log(res);
+            setTasks(res.tasks);
+            navigate(paths.HOME)
+        })
+        .catch((err) => {
+            setError(err.massage);
+        })
+    }
 
     
-    // console.log(id);
-    // console.log(tasks);
-    // console.log(tasks[0]);
-
-    // const deleteCards = () => {
-    //     deleteTasks({token: user.token, id}).then((data) => {
-    //         console.log(data);
-    //         setTasks(res.tasks);
-    //         navigate(paths.HOME)
-    //     })
-    // }
 
     return <S.PopBrowse id="popBrowse">
     <S.PopBrowseContainer>
@@ -79,7 +82,7 @@ function PopBrowse() {
                 <S.Show><S.PopBrowseBtnBrowse>
                     <S.BtnGroup>
                         <S.BtnBor $onClick className="btn-browse__edit"><S.BtnBorA href="#">Редактировать задачу</S.BtnBorA></S.BtnBor>
-                        <S.BtnBor className="btn-browse__delete"><S.BtnBorA href="#">Удалить задачу</S.BtnBorA></S.BtnBor>
+                        <S.BtnBor onClick={deleteCards} className="btn-browse__delete"><S.BtnBorA href="#">Удалить задачу</S.BtnBorA></S.BtnBor>
                     </S.BtnGroup>
                     <S.BtnBg className="btn-browse__close"><S.LinkBtnBgA to={paths.HOME}>Закрыть</S.LinkBtnBgA></S.BtnBg>
                 </S.PopBrowseBtnBrowse></S.Show>
@@ -91,7 +94,7 @@ function PopBrowse() {
                     </S.BtnGroup>
                     <S.BtnBg className="btn-edit__close"><S.BtnBgA href="#">Закрыть</S.BtnBgA></S.BtnBg>
                 </S.PopBrowseBtnEdit></S.Hide>
-                                        
+                    {error && error}                    
             </S.PopBrowseContent>
         </S.PopBrowseBlock>
     </S.PopBrowseContainer>
