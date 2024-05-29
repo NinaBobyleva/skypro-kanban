@@ -20,23 +20,27 @@ function PopBrowse() {
     const {user} = useContext(UserContext);
     const [error, setError] = useState('');
     const navigation = useNavigate();
-    const [status, setStatus] = useState('');
     const [isActiv, setIsActiv] = useState(false);
     const {dateCalendar, setDateCalendar} = useContext(DateContext);
     const {id} = useParams();
     const tasksCard = tasks.find((task) => task._id === id);
+    const [status, setStatus] = useState(tasksCard.status);
+    console.log(status);
     const [editInputTask, setEditInputTask] = useState({
         title: tasksCard.title,
         topic: tasksCard.topic,
         description: tasksCard.description,
         date: tasksCard.date,
+        status: tasksCard.status,
     });
 
     const [value, setValue] = useState(<TitleDayPicker>Срок исполнения: {tasksCard.date}</TitleDayPicker>);
 
     const handleDayClick = (dateCalendar) => {
-        const formatDate = dateCalendar.toLocaleDateString("RU-ru");
-        setValue(<TitleDayPicker>Срок исполнения: <SpanDayPicker>{formatDate}</SpanDayPicker></TitleDayPicker>);
+        if (isActiv) {
+            const formatDate = dateCalendar.toLocaleDateString("RU-ru");
+            return setValue(<TitleDayPicker>Срок исполнения: <SpanDayPicker>{formatDate}</SpanDayPicker></TitleDayPicker>);
+        }
     }
 
     const deleteCards = () => {
@@ -49,9 +53,10 @@ function PopBrowse() {
         })
     }
 
-    // const onEditCard = () => {
-    //     setIsActiv(true);
-    // }
+    const cancellationEdit = () => {
+        setEditInputTask(tasksCard);
+        setStatus(tasksCard.status);
+    }
 
     const onSaveEditTask = () => {
         const editTask = {
@@ -59,7 +64,7 @@ function PopBrowse() {
             topic: tasksCard.topic,
             date: dateCalendar,
             description: editInputTask.description,
-            status: status
+            status: status || editInputTask.status,
         }
 
         editTasks({token: user.token, editTask: editTask, id})
@@ -133,15 +138,15 @@ function PopBrowse() {
                 <S.PopBrowseBtnEdit>
                     <S.BtnGroup>
                         <S.BtnBg onClick={onSaveEditTask} className="btn-edit__edit"><S.BtnBgA>Сохранить</S.BtnBgA></S.BtnBg>
-                        <S.BtnBor className="btn-edit__edit"><S.BtnBorA >Отменить</S.BtnBorA></S.BtnBor>
-                        <S.BtnBor onClick={deleteCards} className="btn-edit__delete" id="btnDelete"><S.BtnBorA href="#">Удалить задачу</S.BtnBorA></S.BtnBor>
+                        <S.BtnBor onClick={cancellationEdit} className="btn-edit__edit"><S.BtnBorA>Отменить</S.BtnBorA></S.BtnBor>
+                        <S.BtnBor onClick={deleteCards} className="btn-edit__delete" id="btnDelete"><S.BtnBorA>Удалить задачу</S.BtnBorA></S.BtnBor>
                     </S.BtnGroup>
                     <S.BtnBg className="btn-edit__close"><S.LinkBtnBgA to={paths.HOME}>Закрыть</S.LinkBtnBgA></S.BtnBg>
                 </S.PopBrowseBtnEdit> : 
                 <S.PopBrowseBtnBrowse>
                     <S.BtnGroup>
                         <S.BtnBor onClick={() => {setIsActiv(true)}} className="btn-browse__edit"><S.BtnBorA>Редактировать задачу</S.BtnBorA></S.BtnBor>
-                        <S.BtnBor onClick={deleteCards} className="btn-browse__delete"><S.BtnBorA href="#">Удалить задачу</S.BtnBorA></S.BtnBor>
+                        <S.BtnBor onClick={deleteCards} className="btn-browse__delete"><S.BtnBorA>Удалить задачу</S.BtnBorA></S.BtnBor>
                     </S.BtnGroup>
                     <S.BtnBg className="btn-browse__close"><S.LinkBtnBgA to={paths.HOME}>Закрыть</S.LinkBtnBgA></S.BtnBg>
                 </S.PopBrowseBtnBrowse>}
