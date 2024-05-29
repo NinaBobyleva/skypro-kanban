@@ -1,8 +1,7 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { Hover1, Subttl } from "../../../globalStyle.styled";
-
-// export const Orange = 
+import { topicStyles } from "../../../lib/topic";
 
 export const PopNewCard = styled.div`
     width: 100%;
@@ -194,6 +193,7 @@ export const CategoriesTheme = styled.div`
     border-radius: 24px;
     margin-right: 7px;
     opacity: ${({$isActiv}) => $isActiv ? '1' : '0.4'};
+    ${props => topicStyles[props.$topicStyle]};
     label {
         font-size: 14px;
         font-weight: 600;

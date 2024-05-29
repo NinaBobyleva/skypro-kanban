@@ -7,6 +7,7 @@ function Card({ task }) {
         'Research': '_green',
         'Copywriting': '_purple',
     }
+
     return <S.CardsItem>
     <S.CardsCard>
         <S.CardGroup>

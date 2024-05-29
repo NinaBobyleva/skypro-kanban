@@ -21,6 +21,7 @@ export async function getTasks(token) {
 }
 
 export async function postNewTasks({token, newTasks}) {
+    console.log(newTasks);
     const response = await fetch(kanbanURL, {
         method: "POST",
         body: JSON.stringify(newTasks),
@@ -45,33 +46,35 @@ export async function postNewTasks({token, newTasks}) {
     return data;
 }
 
-// export async function postNewTasks({token, newTasks}) {
-//     const response = await fetch(kanbanURL, {
-//         method: "PUT",
-//         body: JSON.stringify(newTasks),
-//         headers: {
-//             Authorization: `Bearer ${token}`,
-//         },
-//     });
+export async function editTasks({token, editTask, id}) {
+    console.log(editTask);
+    console.log(id);
+    const response = await fetch(kanbanURL + `/${id}`, {
+        method: "PUT",
+        body: JSON.stringify(editTask),
+        headers: {
+            Authorization: `Bearer ${token}`,
+        },
+    });
 
-//     if (!response.ok) {
-//         throw new Error("Ошибка сервера");
-//     }
+    if (!response.ok) {
+        throw new Error("Ошибка сервера");
+    }
 
-//     if (response.status === 401) {
-//         throw new Error("Нет авторизации!");
-//     }
+    if (response.status === 401) {
+        throw new Error("Нет авторизации!");
+    }
 
-//     if (response.status === 400) {
-//         throw new Error("Полученные данные не в формате JSON!");
-//     }
+    if (response.status === 400) {
+        throw new Error("Полученные данные не в формате JSON!");
+    }
 
-//     const data = await response.json();
-//     return data;
-// }
+    const data = await response.json();
+    console.log(data);
+    return data;
+}
 
 export async function deleteTasks({token, id}) {
-    console.log(id);
     const response = await fetch(kanbanURL + `/${id}`, {
         method: "DELETE",
         headers: {
@@ -88,6 +91,5 @@ export async function deleteTasks({token, id}) {
     }
 
     const data = await response.json();
-    console.log(data);
     return data;
 }

@@ -1,13 +1,14 @@
 import styled from "styled-components";
 import { Hover1, Hover3, Subttl } from "../../../globalStyle.styled";
 import { Link } from "react-router-dom";
+import { topicStyles } from "../../../lib/topic";
 
 export const Hide = styled.div`
-    display: ${props => props.$onClick ? 'block' : 'none' };
+    display: none;
 `;
 
 export const Show = styled.div`
-    display: ${props => props.$onClick ? 'none' : 'block' };
+    display: block;
 `;
 
 export const PopBrowse = styled.div`
@@ -15,7 +16,7 @@ export const PopBrowse = styled.div`
     height: 100%;
     min-width: 375px;
     min-height: 100vh;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     z-index: 7;
@@ -70,7 +71,19 @@ export const PopBrowseContent = styled.div`
 `;
 
 export const CategoriesTheme = styled.div`
+    display: inline-block;
+    height: 30px;
+    text-align: center;
+    padding: 6px 20px;
+    border-radius: 24px;
+    margin-right: 7px;
     opacity: 1;
+    ${props => topicStyles[props.$topicStyle]};
+    p {
+        font-size: 14px;
+        font-weight: 600;
+        white-space: nowrap;
+    }
 `;
 
 export const ThemeDown = styled.div`
@@ -122,16 +135,21 @@ export const StatusThemes = styled.div`
 export const StatusTheme = styled.div`
     border-radius: 24px;
     border: 0.7px solid rgba(148, 166, 190, 0.4);
-    color: #94A6BE;
+    color: ${({$isActiv}) => $isActiv ? '#FFFFFF' : '#94A6BE'};
+    background: ${({$isActiv}) => $isActiv ? '#94A6BE' : ''};
     padding: 11px 14px 10px;
     margin-right: 7px;
     margin-bottom: 7px;
 `;
 
-export const StatusThemeP = styled.p`
+export const StatusThemeP = styled.label`
     font-size: 14px;
     line-height: 1;
     letter-spacing: -0.14px;
+`;
+
+export const RadioInput = styled.input`
+    display: none;
 `;
 
 export const PopBrowseWrap = styled.div`
@@ -162,7 +180,7 @@ export const PopBrowseSubttl = styled.label`
     ${Subttl}
 `;
 
-export const FormBrowseArea = styled.div`
+export const FormBrowseArea = styled.textarea`
     max-width: 370px;
     width: 100%;
     outline: none;

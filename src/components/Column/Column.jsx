@@ -1,7 +1,7 @@
 import Card from "../Card/Card";
 import * as S from "./column.styled";
 
-function Column({ nameColumn, tasks }) {
+function Column({ tasks, nameColumn }) {
     return  <S.MainColumn>
     <S.ColumnTitle>
         {nameColumn}
