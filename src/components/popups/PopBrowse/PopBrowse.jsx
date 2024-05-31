@@ -47,7 +47,7 @@ function PopBrowse() {
             navigation(paths.HOME);
         })
         .catch((err) => {
-            setError(err.massage);
+            setError(err.message);
         })
     }
 
