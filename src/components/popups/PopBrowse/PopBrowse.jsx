@@ -32,7 +32,28 @@ function PopBrowse() {
         status: tasksCard.status,
     });
 
-    const [value, setValue] = useState(<TitleDayPicker>Срок исполнения: {tasksCard.date}</TitleDayPicker>);
+    const onSaveEditTask = () => {
+        const editTask = {
+            title: tasksCard.title,
+            topic: tasksCard.topic,
+            date: dateCalendar,
+            description: editInputTask.description,
+            status: editInputTask.status,
+        }
+
+        editTasks({token: user.token, editTask: editTask, id})
+        .then((res) => {
+            setTasks(res.tasks);
+            navigation(paths.HOME);
+        })
+        .catch((err) => {
+            setError(err.massage);
+        })
+    }
+
+    const currentDate = new Date(tasksCard.date).toLocaleDateString();
+
+    const [value, setValue] = useState(<TitleDayPicker>Срок исполнения: <SpanDayPicker>{currentDate}</SpanDayPicker></TitleDayPicker>);
 
     const handleDayClick = (dateCalendar) => {
         if (isActiv) {
@@ -53,27 +74,9 @@ function PopBrowse() {
 
     const cancellationEdit = () => {
         setEditInputTask(tasksCard);
-        setValue(<TitleDayPicker>Срок исполнения: {tasksCard.date}</TitleDayPicker>);
+        setValue(<TitleDayPicker>Срок исполнения: <SpanDayPicker>{currentDate}</SpanDayPicker></TitleDayPicker>);
     }
 
-    const onSaveEditTask = () => {
-        const editTask = {
-            title: tasksCard.title,
-            topic: tasksCard.topic,
-            date: dateCalendar,
-            description: editInputTask.description,
-            status: editInputTask.status,
-        }
-
-        editTasks({token: user.token, editTask: editTask, id})
-        .then((res) => {
-            setTasks(res.tasks);
-            navigation(paths.HOME);
-        })
-        .catch((err) => {
-            setError(err.massage);
-        })
-    }
 
     return <S.PopBrowse id="popBrowse">
     <S.PopBrowseContainer>

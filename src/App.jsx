@@ -1,4 +1,3 @@
-import './App.css'
 import { RoutesApp } from './RoutesApp';
 import { GlobalStyle } from './globalStyle.styled';
 

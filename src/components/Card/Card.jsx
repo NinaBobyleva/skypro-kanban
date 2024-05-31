@@ -7,6 +7,8 @@ function Card({ task }) {
         'Research': '_green',
         'Copywriting': '_purple',
     }
+    
+    const currentDate = new Date(task.date).toLocaleDateString();
 
     return <S.CardsItem>
     <S.CardsCard>
@@ -38,7 +40,7 @@ function Card({ task }) {
                         </clipPath>
                     </defs>
                 </S.CardSvg>
-                <S.CardP>{task.date}</S.CardP>
+                <S.CardP>{currentDate}</S.CardP>
             </S.CardDate>
         </S.CardContent>
     </S.CardsCard>
