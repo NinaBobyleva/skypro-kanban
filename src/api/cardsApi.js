@@ -21,7 +21,6 @@ export async function getTasks(token) {
 }
 
 export async function postNewTasks({token, newTasks}) {
-    console.log(newTasks);
     const response = await fetch(kanbanURL, {
         method: "POST",
         body: JSON.stringify(newTasks),
@@ -47,7 +46,6 @@ export async function postNewTasks({token, newTasks}) {
 }
 
 export async function editTasks({token, editTask, id}) {
-    console.log(editTask);
     const response = await fetch(kanbanURL + `/${id}`, {
         method: "PUT",
         body: JSON.stringify(editTask),
