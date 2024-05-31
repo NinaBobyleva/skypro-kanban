@@ -24,8 +24,6 @@ function PopBrowse() {
     const {dateCalendar, setDateCalendar} = useContext(DateContext);
     const {id} = useParams();
     const tasksCard = tasks.find((task) => task._id === id);
-    const [status, setStatus] = useState(tasksCard.status);
-    console.log(status);
     const [editInputTask, setEditInputTask] = useState({
         title: tasksCard.title,
         topic: tasksCard.topic,
@@ -55,7 +53,7 @@ function PopBrowse() {
 
     const cancellationEdit = () => {
         setEditInputTask(tasksCard);
-        setStatus(tasksCard.status);
+        setValue(<TitleDayPicker>Срок исполнения: {tasksCard.date}</TitleDayPicker>);
     }
 
     const onSaveEditTask = () => {
@@ -64,7 +62,7 @@ function PopBrowse() {
             topic: tasksCard.topic,
             date: dateCalendar,
             description: editInputTask.description,
-            status: status || editInputTask.status,
+            status: editInputTask.status,
         }
 
         editTasks({token: user.token, editTask: editTask, id})
@@ -91,42 +89,47 @@ function PopBrowse() {
                     <S.StatusP>Статус</S.StatusP>
                     {isActiv ? 
                     <S.StatusThemes>
-                        <S.StatusTheme $isActiv={status === 'Без статуса'}>
+                        <S.StatusTheme $isActiv={editInputTask.status === 'Без статуса'}>
                             <S.StatusThemeP htmlFor="status1">Без статуса</S.StatusThemeP>
-                            <S.RadioInput onChange={(e) => {setStatus(e.target.value)}} type="radio" name="status" id="status1" value={'Без статуса'} />
+                            <S.RadioInput onChange={(e) => {setEditInputTask({...editInputTask, status: e.target.value})}} type="radio" name="status" id="status1" value={'Без статуса'} />
                         </S.StatusTheme>
-                        <S.StatusTheme $isActiv={status === 'Нужно сделать'}>
+                        <S.StatusTheme $isActiv={editInputTask.status === 'Нужно сделать'}>
                             <S.StatusThemeP htmlFor="status2">Нужно сделать</S.StatusThemeP>
-                            <S.RadioInput onChange={(e) => {setStatus(e.target.value)}} type="radio" name="status" id="status2" value={'Нужно сделать'} />
+                            <S.RadioInput onChange={(e) => {setEditInputTask({...editInputTask, status: e.target.value})}} type="radio" name="status" id="status2" value={'Нужно сделать'} />
                         </S.StatusTheme>
-                        <S.StatusTheme $isActiv={status === 'В работе'}>
+                        <S.StatusTheme $isActiv={editInputTask.status === 'В работе'}>
                             <S.StatusThemeP htmlFor="status3">В работе</S.StatusThemeP>
-                            <S.RadioInput onChange={(e) => {setStatus(e.target.value)}} type="radio" name="status" id="status3" value={'В работе'} />
+                            <S.RadioInput onChange={(e) => {setEditInputTask({...editInputTask, status: e.target.value})}} type="radio" name="status" id="status3" value={'В работе'} />
                         </S.StatusTheme>
-                        <S.StatusTheme $isActiv={status === 'Тестирование'}>
+                        <S.StatusTheme $isActiv={editInputTask.status === 'Тестирование'}>
                             <S.StatusThemeP htmlFor="status4">Тестирование</S.StatusThemeP>
-                            <S.RadioInput onChange={(e) => {setStatus(e.target.value)}} type="radio" name="status" id="status4" value={'Тестирование'} />
+                            <S.RadioInput onChange={(e) => {setEditInputTask({...editInputTask, status: e.target.value})}} type="radio" name="status" id="status4" value={'Тестирование'} />
                         </S.StatusTheme>
-                        <S.StatusTheme $isActiv={status === 'Готово'}>
+                        <S.StatusTheme $isActiv={editInputTask.status === 'Готово'}>
                             <S.StatusThemeP htmlFor="status5">Готово</S.StatusThemeP>
-                            <S.RadioInput onChange={(e) => {setStatus(e.target.value)}} type="radio" name="status" id="status5" value={'Готово'} />
+                            <S.RadioInput onChange={(e) => {setEditInputTask({...editInputTask, status: e.target.value})}} type="radio" name="status" id="status5" value={'Готово'} />
                         </S.StatusTheme>
                     </S.StatusThemes> : 
                     <S.StatusThemes>
                         <S.StatusTheme $isActiv={true}>
                             <S.StatusThemeP>{tasksCard.status}</S.StatusThemeP>
                         </S.StatusTheme>
-                    </S.StatusThemes>}  
+                    </S.StatusThemes>}
                 </S.Status>
                 <S.PopBrowseWrap>
                     <S.PopBrowseForm id="formBrowseCard" action="#">									
-                        <S.PopBrowseBlock>
+                        <S.FormBrowseBlock>
                             <S.PopBrowseSubttl htmlFor="textArea01">Описание задачи</S.PopBrowseSubttl>
-                            {isActiv ? <S.FormBrowseArea  onChange={(e) => {setEditInputTask(e.target.value)}} value={editInputTask.description} name="description" id="textArea01" placeholder="Введите описание задачи..."></S.FormBrowseArea> : 
-                            <S.FormBrowseArea name="text" id="textArea01" value={editInputTask.description} readOnly placeholder="Введите описание задачи..."></S.FormBrowseArea>}
-                        </S.PopBrowseBlock>
+                            {isActiv ?
+                            <S.FormBrowseArea  onChange={(e) => {setEditInputTask({...editInputTask, description: e.target.value})}} value={editInputTask.description} name="description" id="textArea01" placeholder="Введите описание задачи..."></S.FormBrowseArea> : 
+                            <S.FormBrowseArea name="text" id="textArea01" value={editInputTask.description} readOnly placeholder="Введите описание задачи..."></S.FormBrowseArea>
+                            }
+                        </S.FormBrowseBlock>
                     </S.PopBrowseForm>
-                    <Calendar dateCalendar={dateCalendar} setDateCalendar={setDateCalendar} handleDayClick={handleDayClick} value={value} />
+                    {isActiv ?
+                    <Calendar dateCalendar={dateCalendar} setDateCalendar={setDateCalendar} handleDayClick={handleDayClick} value={value} /> :
+                    <Calendar handleDayClick={handleDayClick} value={value} />
+                    }
                 </S.PopBrowseWrap>
                 <S.ThemeDown>
                     <CategoriesP>Категория</CategoriesP>
