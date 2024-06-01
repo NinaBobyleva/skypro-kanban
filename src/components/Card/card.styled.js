@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import { topicStyles } from "../../lib/topic";
+import { ColorTheme } from "../../globalStyle.styled";
+// import { topicStyles } from "../../lib/topic";
 
 export const CardsItem = styled.div`
     padding: 5px;
@@ -11,7 +12,7 @@ export const CardsItem = styled.div`
 export const CardsCard = styled.div`
     width: 220px;
     height: 130px;
-    background-color: #FFFFFF;
+    background-color: ${props => props.theme.bgHeadMod};
     border-radius: 10px;
     display: flex;
     flex-direction: column;
@@ -21,7 +22,7 @@ export const CardsCard = styled.div`
     @media screen and (max-width: 1200px) {
         width: 220px;
         height: 130px;
-        background-color: #FFFFFF;
+        background-color: ${props => props.theme.bgHeadMod};
         border-radius: 10px;
         display: flex;
         flex-direction: column;
@@ -51,10 +52,10 @@ export const CardTheme = styled.div`
     height: 20px;
     padding: 5px 14px;
     border-radius: 18px;
-    ${props => topicStyles[props.$topicStyle]};
+    ${props => ColorTheme(props.$topicStyle)}
     ${TopicText} {
-    ${props => topicStyles[props.$topicStyle]};
-  }
+        ${props => ColorTheme(props.$topicStyle)}
+    }
 `;
 
 export const CardBtn = styled.div`
@@ -85,7 +86,7 @@ export const CardTitle = styled.div`
     font-size: 14px;
     font-weight: 500;
     line-height: 18px;
-    color: #000000;
+    color: ${props => props.theme.text};
     margin-bottom: 10px;
 `;
 

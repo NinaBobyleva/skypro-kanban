@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { Hover1, Subttl } from "../../../globalStyle.styled";
-import { topicStyles } from "../../../lib/topic";
+import { Hover1, Subttl, ColorTheme } from "../../../globalStyle.styled"; 
+// import { topicStyles } from "../../../lib/topic";
 
 export const PopNewCard = styled.div`
     width: 100%;
@@ -40,12 +40,12 @@ export const PopNewCardContainer = styled.div`
 export const PopNewCardBlock = styled.div`
     display: block;
     margin: 0 auto;
-    background-color: #FFFFFF;
+    background-color: ${props => props.theme.bgHeadMod};
     max-width: 630px;
     width: 100%;
     padding: 40px 30px 48px;
     border-radius: 10px;
-    border: 0.7px solid #D4DBE5;
+    border: 0.7px solid ${props => props.theme.border};
     position: relative;
     @media screen and (max-width: 660px) {
         border-radius: 0;
@@ -61,7 +61,7 @@ export const PopNewCardContent = styled.div`
 `;
 
 export const PopNewCardTtl = styled.h3`
-    color: #000;
+    color: ${props => props.theme.text};
     font-size: 20px;
     font-weight: 600;
     line-height: 24px;
@@ -193,12 +193,15 @@ export const CategoriesTheme = styled.div`
     border-radius: 24px;
     margin-right: 7px;
     opacity: ${({$isActiv}) => $isActiv ? '1' : '0.4'};
-    ${props => topicStyles[props.$topicStyle]};
+    /* color: ${props => props.theme.text}; */
+    ${props => ColorTheme(props.$topicStyle)}
+    /* background: ${props => props.theme.bodyStatus}; */
     label {
         font-size: 14px;
         font-weight: 600;
         line-height: 14px;
         white-space: nowrap;
+        /* color: {props => props.theme.statusColor}; */
     }
 `;
 

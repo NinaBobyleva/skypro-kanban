@@ -7,7 +7,7 @@ export const TitleDayPicker = styled.p`
 `;
 
 export const SpanDayPicker = styled.span`
-    color: #000000;
+    color: ${props => props.theme.text}
 `;
 
 export const Calendar = styled.div`

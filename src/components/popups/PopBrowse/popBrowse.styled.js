@@ -1,15 +1,7 @@
 import styled from "styled-components";
-import { Hover1, Hover3, Subttl } from "../../../globalStyle.styled";
+import { ColorTheme, Hover1, Hover3, Subttl } from "../../../globalStyle.styled";
 import { Link } from "react-router-dom";
-import { topicStyles } from "../../../lib/topic";
-
-export const Hide = styled.div`
-    display: none;
-`;
-
-export const Show = styled.div`
-    display: block;
-`;
+// import { topicStyles } from "../../../lib/topic";
 
 export const PopBrowse = styled.div`
     width: 100%;
@@ -44,12 +36,12 @@ export const PopBrowseContainer = styled.div`
 export const PopBrowseBlock = styled.div`
     display: block;
     margin: 0 auto;
-    background-color: #FFFFFF;
+    background-color: ${props => props.theme.bgHeadMod};
     max-width: 630px;
     width: 100%;
     padding: 40px 30px 38px;
     border-radius: 10px;
-    border: 0.7px solid #D4DBE5;
+    border: 0.7px solid ${props => props.theme.border};
     position: relative;
     @media screen and (max-width: 660px) {
         border-radius: 0;
@@ -78,7 +70,7 @@ export const CategoriesTheme = styled.div`
     border-radius: 24px;
     margin-right: 7px;
     opacity: 1;
-    ${props => topicStyles[props.$topicStyle]};
+    ${props => ColorTheme(props.$topicStyle)}
     p {
         font-size: 14px;
         font-weight: 600;
@@ -110,7 +102,7 @@ export const PopBrowseTopBlock = styled.div`
 `;
 
 export const PopBrowseTtl = styled.h3`
-    color: #000;
+    color: ${props => props.theme.text};
     font-size: 20px;
     font-weight: 600;
     line-height: 24px;
@@ -185,7 +177,7 @@ export const FormBrowseArea = styled.textarea`
     width: 100%;
     outline: none;
     padding: 14px;
-    background: #EAEEF6;
+    background: ${props => props.theme.body};
     border: 0.7px solid rgba(148, 166, 190, 0.4);
     border-radius: 8px;
     font-size: 14px;
@@ -193,6 +185,7 @@ export const FormBrowseArea = styled.textarea`
     letter-spacing: -0.14px;
     margin-top: 14px;
     height: 200px;
+    color: ${props => props.theme.text};
     &::-moz-placeholder {
         font-weight: 400;
         font-size: 14px;
@@ -245,15 +238,14 @@ export const BtnGroup = styled.div`
 
 export const BtnBor = styled.button`
     border-radius: 4px;
-    border: 0.7px solid var(--palette-navy-60, #565EEF);
+    border: 0.7px solid var(--palette-navy-60, ${props => props.theme.btnColor});
     outline: none;
     background: transparent;
-    color: #565EEF;
     ${Hover3}
 `;
 
 export const BtnBorA = styled.a`
-   color: #565EEF;
+   color: ${props => props.theme.btnColor};
 `;
 
 export const BtnBg = styled.button`

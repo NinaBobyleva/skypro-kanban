@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react';
 import Main from '../../components/Main/Main';
 import Header from '../../components/Header/Header';
 import { Wrapper } from '../../globalStyle.styled';

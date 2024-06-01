@@ -11,11 +11,11 @@ import { TitleDayPicker, SpanDayPicker } from "../../Calendar/Calendar.styled";
 
 
 function PopNewCard() {
-    const colors = {
-        'Web Design': '_orange',
-        'Research': '_green',
-        'Copywriting': '_purple',
-    }
+    // const colors = {
+    //     'Web Design': '_orange',
+    //     'Research': '_green',
+    //     'Copywriting': '_purple',
+    // }
     
     const {user} = useContext(UserContext);
     const [error, setError] = useState('');
@@ -91,15 +91,15 @@ function PopNewCard() {
                     <S.Categories>
                         <S.CategoriesP>Категория</S.CategoriesP>
                         <S.CategoriesThemes>
-                            <S.CategoriesTheme $isActiv={topic === 'Web Design'} $topicStyle={`${colors["Web Design"]}`}>
+                            <S.CategoriesTheme $isActiv={topic === 'Web Design'} $topicStyle="_orange">
                                 <label htmlFor="category1">Web Design</label>
                                 <S.RadioInput onChange={(e) => {setTopic(e.target.value)}} type="radio" name="category" id="category1" value={'Web Design'} />
                             </S.CategoriesTheme>
-                            <S.CategoriesTheme $isActiv={topic === 'Research'} $topicStyle={`${colors["Research"]}`}>
+                            <S.CategoriesTheme $isActiv={topic === 'Research'} $topicStyle="_green">
                                 <label htmlFor="category2">Research</label>
                                 <S.RadioInput onChange={(e) => {setTopic(e.target.value)}} type="radio" name="category" id="category2" value={'Research'} />
                             </S.CategoriesTheme>
-                            <S.CategoriesTheme $isActiv={topic === 'Copywriting'} $topicStyle={`${colors["Copywriting"]}`}>
+                            <S.CategoriesTheme $isActiv={topic === 'Copywriting'} $topicStyle="_purple">
                                 <label htmlFor="category3">Copywriting</label>
                                 <S.RadioInput onChange={(e) => {setTopic(e.target.value)}} type="radio" name="category" id="category3" value={'Copywriting'} />
                             </S.CategoriesTheme>
