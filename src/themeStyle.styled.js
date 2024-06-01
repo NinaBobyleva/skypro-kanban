@@ -14,6 +14,7 @@ export const lightTheme = {
     text: "#000000",
     headUs: "#565EEF",
     btnColor: "#565EEF",
+    colorDay: "#FFFFFF",
     isDark: false
 }
 
@@ -33,5 +34,6 @@ export const darkTheme = {
     text: "#FFFFFF",
     headUs: "#FFFFFF",
     btnColor: "#FFFFFF",
+    colorDay: "#000000",
     isDark: true
 }

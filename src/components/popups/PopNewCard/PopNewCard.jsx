@@ -11,11 +11,6 @@ import { TitleDayPicker, SpanDayPicker } from "../../Calendar/Calendar.styled";
 
 
 function PopNewCard() {
-    // const colors = {
-    //     'Web Design': '_orange',
-    //     'Research': '_green',
-    //     'Copywriting': '_purple',
-    // }
     
     const {user} = useContext(UserContext);
     const [error, setError] = useState('');
@@ -33,7 +28,6 @@ function PopNewCard() {
 
     const [newInputTask, setNewInputTask] = useState({
         title: '',
-        // topic: '',
         status: 'Без статуса',
         description: '',
     });
@@ -51,7 +45,6 @@ function PopNewCard() {
         }
 
         const title = newInputTask.title || "Новая задача";
-        // const topic = newInputTask.topic || "Research";
 
         const newTask = {
             ...newInputTask,

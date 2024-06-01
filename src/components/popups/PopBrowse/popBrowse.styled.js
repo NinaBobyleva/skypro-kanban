@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { ColorTheme, Hover1, Hover3, Subttl } from "../../../globalStyle.styled";
 import { Link } from "react-router-dom";
-// import { topicStyles } from "../../../lib/topic";
 
 export const PopBrowse = styled.div`
     width: 100%;

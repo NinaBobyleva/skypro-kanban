@@ -3,7 +3,6 @@ import { useState } from "react";
 import * as S from "./header.styled";
 import PopUser from "../popups/PopUser/PopUser";
 import { paths } from "../../paths";
-// import { lightTheme } from "../../themeStyle.styled";
 
 function Header({ user }) {
     const [isOpenModalUser, setIsOpenModalUser] = useState(false);

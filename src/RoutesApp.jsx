@@ -13,21 +13,18 @@ import { NewCardPage } from './pages/NewCardPage/NewCardPage';
 export function RoutesApp() {
     
     return (
-        <>
-            {/* <GlobalStyle /> */}
-            <Routes>
-                <Route element={<PrivateRoute />}>
-                    <Route path={paths.HOME} element={<HomePage />}>
-                        <Route path={paths.EXIT} element={<ExitPage />} />
-                        <Route path={paths.CARD_ID} element={<CardPage />} />
-                        <Route path={paths.NEW_CARD} element={<NewCardPage />} />
-                    </Route>
+        <Routes>
+            <Route element={<PrivateRoute />}>
+                <Route path={paths.HOME} element={<HomePage />}>
+                    <Route path={paths.EXIT} element={<ExitPage />} />
+                    <Route path={paths.CARD_ID} element={<CardPage />} />
+                    <Route path={paths.NEW_CARD} element={<NewCardPage />} />
                 </Route>
+            </Route>
 
-                <Route path={paths.LOGIN} element={<LoginPage />} />
-                <Route path={paths.REGISTER} element={<RegisterPage />} />
-                <Route path={paths.NOT_FOUND} element={<NotFoundPage />} />
-            </Routes>
-        </>
+            <Route path={paths.LOGIN} element={<LoginPage />} />
+            <Route path={paths.REGISTER} element={<RegisterPage />} />
+            <Route path={paths.NOT_FOUND} element={<NotFoundPage />} />
+        </Routes>
     )
 }

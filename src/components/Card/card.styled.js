@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { ColorTheme } from "../../globalStyle.styled";
-// import { topicStyles } from "../../lib/topic";
 
 export const CardsItem = styled.div`
     padding: 5px;

@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { Hover1, Subttl, ColorTheme } from "../../../globalStyle.styled"; 
-// import { topicStyles } from "../../../lib/topic";
 
 export const PopNewCard = styled.div`
     width: 100%;
@@ -119,6 +118,7 @@ export const FormNewInput = styled.input`
     font-size: 14px;
     line-height: 1;
     letter-spacing: -0.14px;
+    color: ${props => props.theme.text};
     ::-moz-placeholder {
         font-weight: 400;
         font-size: 14px;
@@ -146,6 +146,7 @@ export const FormNewArea = styled.textarea`
     font-size: 14px;
     line-height: 1;
     letter-spacing: -0.14px;
+    color: ${props => props.theme.text};
     ::-moz-placeholder {
         font-weight: 400;
         font-size: 14px;
@@ -193,15 +194,12 @@ export const CategoriesTheme = styled.div`
     border-radius: 24px;
     margin-right: 7px;
     opacity: ${({$isActiv}) => $isActiv ? '1' : '0.4'};
-    /* color: ${props => props.theme.text}; */
     ${props => ColorTheme(props.$topicStyle)}
-    /* background: ${props => props.theme.bodyStatus}; */
     label {
         font-size: 14px;
         font-weight: 600;
         line-height: 14px;
         white-space: nowrap;
-        /* color: {props => props.theme.statusColor}; */
     }
 `;
 

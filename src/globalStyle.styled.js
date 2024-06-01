@@ -120,11 +120,6 @@ export const Purple = css`
   color: ${props => props.theme.colorPurple};
 `;
 
-// export const Grey = css`
-//   background: "#94A6BE";
-//   color: "#FFFFFF";
-// `;
-
 export const ColorTheme = (color) => css`
   ${color === "_orange" && Orange}
   ${color === "_green" && Green}
