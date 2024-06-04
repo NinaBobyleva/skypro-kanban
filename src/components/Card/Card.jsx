@@ -11,7 +11,7 @@ function Card({ task }) {
     const currentDate = new Date(task.date).toLocaleDateString();
 
     return <S.CardsItem>
-    <S.CardsCard>
+    <S.CardsCard draggable>
         <S.CardGroup>
             <S.CardTheme $topicStyle={`${colors[task.topic]}`}>
             <S.TopicText $topicStyle={`${colors[task.topic]}`}>{task.topic}</S.TopicText>  

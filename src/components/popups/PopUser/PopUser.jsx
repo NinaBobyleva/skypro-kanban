@@ -6,15 +6,7 @@ import { GlobalThemeContext } from "../../../context/globalThemeContext";
 
 function PopUser() {
     const {user} = useContext(UserContext);
-    const {globalTheme, setGlobalTheme} = useContext(GlobalThemeContext);
-
-    const toggleTheme = () => {
-        if (globalTheme === "light") {
-            setGlobalTheme("dark");
-        } else {
-            setGlobalTheme("light");
-        }
-    }
+    const {toggleTheme} = useContext(GlobalThemeContext);
 
     return <S.HeaderPopUserSet id="user-set-target">
     <S.PopUserSet>
