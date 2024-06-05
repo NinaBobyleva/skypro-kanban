@@ -1,14 +1,14 @@
 import Card from "../Card/Card";
 import * as S from "./column.styled";
 
-function Column({ nameColumn, tasks }) {
+function Column({ tasks, nameColumn }) {
     return  <S.MainColumn>
     <S.ColumnTitle>
         {nameColumn}
     </S.ColumnTitle>
     <S.Cards>
-        {tasks.map((task, index) => (
-            <Card key={index} task={task} />
+        {tasks.map((task) => (
+            <Card key={task._id} task={task} />
         ))}
     </S.Cards>
 </S.MainColumn>

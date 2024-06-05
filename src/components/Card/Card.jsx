@@ -7,13 +7,15 @@ function Card({ task }) {
         'Research': '_green',
         'Copywriting': '_purple',
     }
+    
+    const currentDate = new Date(task.date).toLocaleDateString();
+
     return <S.CardsItem>
-    <S.CardsCard>
+    <S.CardsCard draggable>
         <S.CardGroup>
             <S.CardTheme $topicStyle={`${colors[task.topic]}`}>
             <S.TopicText $topicStyle={`${colors[task.topic]}`}>{task.topic}</S.TopicText>  
             </S.CardTheme>
-            {/* <a href="#popBrowse" target="_self"> */}
                 <Link to={`/card/${task._id}`}>
                     <S.CardBtn>
                         <S.CardDiv></S.CardDiv>
@@ -21,8 +23,6 @@ function Card({ task }) {
                         <S.CardDiv></S.CardDiv>
                     </S.CardBtn>
                 </Link>
-                
-            {/* </a> */}
         </S.CardGroup>
         <S.CardContent>
             <a href="" target="_blank">
@@ -40,7 +40,7 @@ function Card({ task }) {
                         </clipPath>
                     </defs>
                 </S.CardSvg>
-                <S.CardP>{task.date}</S.CardP>
+                <S.CardP>{currentDate}</S.CardP>
             </S.CardDate>
         </S.CardContent>
     </S.CardsCard>
